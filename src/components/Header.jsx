@@ -10,7 +10,7 @@ function Header() {
       <nav className="nav">
         <a href="#">الرئيسية</a>
         <a href="/aids">المساعدات</a>
-        <a href="#">تسجيل الأيتام</a>
+        <a href="/orphans">تسجيل الأيتام</a>
       </nav>
     </header>
   )

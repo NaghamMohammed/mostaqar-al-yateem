@@ -35,7 +35,7 @@ function Home() {
       <span className="card-link">عرض المساعدات ←</span>
     </a>
 
-    <a href="#" className="service-card">
+    <a href="/orphans" className="service-card">
       <span className="service-icon">👶</span>
       <h4>تسجيل الأيتام</h4>
       <p>
@@ -45,6 +45,55 @@ function Home() {
     </a>
 
   </div>
+</section>
+
+<section className="about-section">
+
+  <div className="about-content">
+
+    <h3>عن مستقر اليتيم 🌿</h3>
+
+    <p>
+      مستقر اليتيم هو موقع يهدف إلى جمع روابط وفرص المساعدات
+      وتسجيل الأيتام في مكان واحد، لتسهيل الوصول إليها بطريقة
+      بسيطة ومنظمة.
+    </p>
+
+    <div className="about-points">
+
+      <div>
+        <span>🔗</span>
+        <p>
+          نوفر روابط للوصول إلى الجهات والبرامج المعلنة عن فرص المساعدة.
+        </p>
+      </div>
+
+      <div>
+        <span>🔐</span>
+        <p>
+          لا نطلب منك إدخال بيانات شخصية حساسة عبر الموقع.
+        </p>
+      </div>
+
+      <div>
+        <span>ℹ️</span>
+        <p>
+          الموقع دليل للمساعدات ولا يضمن قبول أي طلب، فالقرار يعود للجهة المقدمة للمساعدة.
+        </p>
+      </div>
+
+      <div>
+        <span>🤝</span>
+        <p>
+          يمكنك التواصل عبر واتساب للحصول على المساعدة في التسجيل،
+          مع توضيح أي رسم رمزي قبل بدء الخدمة.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+
 </section>
     </main>
   )
