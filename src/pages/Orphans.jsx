@@ -1,4 +1,61 @@
 function Orphans() {
+
+  const orphanPrograms = [
+  {
+    id: 1,
+    name: 'وزارة التنمية الاجتماعية الفلسطينية',
+    status: 'خدمات رسمية لرعاية الأيتام',
+    description:
+      'تقدم الوزارة خدمات حماية ورعاية للأيتام، وتشمل تحويل الحالات إلى المؤسسات والمراكز الشريكة وفق الإجراءات المعتمدة.',
+    link: 'https://www.mosd.gov.ps/ar/single-sub-citizen/7',
+  },
+
+  {
+    id: 2,
+    name: 'برنامج أمل المستقبل',
+    status: 'برنامج مخصص للأيتام',
+    description:
+      'برنامج تابع لوزارة التنمية الاجتماعية يهدف إلى دعم الأيتام من خلال الكفالات المالية والرعاية والإيواء والمشاريع التنموية.',
+    link: 'https://donate.mosd.gov.ps/about',
+  },
+
+  {
+    id: 3,
+    name: 'جمعية دار اليتيم الفلسطيني',
+    status: 'رعاية وكفالة الأيتام',
+    description:
+      'جمعية خيرية في قطاع غزة تقدم برامج كفالة ورعاية ومساعدات للأيتام والأسر المحتاجة.',
+    link: 'https://darelyateem.org/',
+  },
+
+  {
+    id: 4,
+    name: 'جمعية سبيل لرعاية الأيتام',
+    status: 'جهة شريكة في رعاية الأيتام',
+    description:
+      'جمعية لرعاية الأيتام في طوباس، وهي مذكورة ضمن المؤسسات الشريكة لدى وزارة التنمية الاجتماعية.',
+    link: 'https://www.mosd.gov.ps/ar/single-sub-citizen/7',
+  },
+
+  {
+    id: 5,
+    name: 'جمعية دار اليتيم العربي',
+    status: 'جهة شريكة في رعاية الأيتام',
+    description:
+      'جمعية لرعاية الأيتام في طولكرم، ومذكورة ضمن المؤسسات الشريكة لدى وزارة التنمية الاجتماعية.',
+    link: 'https://www.mosd.gov.ps/ar/single-sub-citizen/7',
+  },
+  {
+  id: 6,
+  name: 'هيئة الأعمال الخيرية - أستراليا',
+  status: 'التسجيل متاح',
+  description:
+    'يمكن تسجيل الحالات ضمن برامج رعاية وكفالة الأيتام.',
+  registrationType: 'yousef',
+  representativeName: 'يوسف الصقر',
+},
+]
+
   return (
     <main className="orphans-page">
 
@@ -10,47 +67,49 @@ function Orphans() {
 
       <div className="orphan-cards">
 
-        <div className="orphan-card">
-          <span className="orphan-icon">📝</span>
+        {orphanPrograms.map((program) => (
 
-          <h3>روابط تسجيل الأيتام</h3>
+          <div className="orphan-card" key={program.id}>
 
-          <p>
-            الوصول إلى الجهات والبرامج التي توفر تسجيل الأيتام.
-          </p>
+            <span className="orphan-icon">📝</span>
 
-          <a href="#">
-            عرض روابط التسجيل ←
-          </a>
-        </div>
+            <h3>{program.name}</h3>
 
-        <div className="orphan-card">
-          <span className="orphan-icon">❤️</span>
+            <span className="orphan-status">
+              🟢 {program.status}
+            </span>
 
-          <h3>برامج كفالة الأيتام</h3>
+            <p>
+              {program.description}
+            </p>
+{program.registrationType === 'yousef' ? (
+  <>
+    <div className="registration-representative">
+      👤 التسجيل عبر
+      <strong>{program.representativeName}</strong>
+    </div>
 
-          <p>
-            التعرف على برامج الكفالة والرعاية المتاحة للأيتام.
-          </p>
+    <a
+      href="#"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      📱 التواصل عبر واتساب ←
+    </a>
+  </>
+) : (
+  <a
+    href={program.link}
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    عرض رابط التسجيل ←
+  </a>
+)}
 
-          <a href="#">
-            معرفة التفاصيل ←
-          </a>
-        </div>
+          </div>
 
-        <div className="orphan-card">
-          <span className="orphan-icon">📱</span>
-
-          <h3>مساعدة في التسجيل</h3>
-
-          <p>
-            إذا واجهتك صعوبة في التسجيل، يمكنك التواصل معنا للمساعدة.
-          </p>
-
-          <a href="#">
-            تواصل معنا ←
-          </a>
-        </div>
+        ))}
 
       </div>
 
