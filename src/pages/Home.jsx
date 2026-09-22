@@ -484,52 +484,63 @@ function Home() {
 
         </div>
 
-        {/* ===================================================
-            تواصل معنا / المساعدة
-        =================================================== */}
-        <div
-          className="help-section"
-          id="help-section"
-        >
+        </section>
+{/* ===================================================
+    تواصل معنا والمساعدة
+=================================================== */}
+            <div
+              className="help-section"
+              id="help-section"
+            >
+              <div className="help-decor help-decor-right">
+                <LeafDecoration />
+              </div>
 
-          <div className="help-decor help-decor-right">
-            <LeafDecoration />
-          </div>
+              <div className="help-icon">
+                🎧
+              </div>
 
-          <div className="help-icon">
-            🎧
-          </div>
+              <div className="help-content">
 
-          <div className="help-content">
+                <h3>
+                  تحتاج إلى مساعدة؟
+                </h3>
 
-            <h3>
-              تحتاج إلى مساعدة؟
-            </h3>
+                <p>
+                  إذا لم تتمكن من التسجيل بنفسك، يمكنك التواصل
+                  معنا للمساعدة في التسجيل والإجابة على استفساراتك.
+                </p>
 
-            <p>
-              إذا لم تتمكن من التسجيل بنفسك، يمكنك التواصل
-              مع شخص يساعدك في التسجيل ويجيب على استفساراتك.
-            </p>
+              </div>
 
-          </div>
+              <div className="help-actions">
 
-          <a
-            href="https://wa.me/972595405711"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="help-button"
-          >
-            تواصل معنا
-            <span>➤</span>
-          </a>
+                <a
+                  href="https://wa.me/972595405711"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="help-button"
+                >
+                  <span>💬</span>
+                  تواصل معنا
+                </a>
 
-          <div className="help-decor help-decor-left">
-            <LeafDecoration />
-          </div>
+                <a
+                  href="https://whatsapp.com/channel/0029Vadr0jg6buMGixWyWu1F"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="help-button help-channel-button"
+                >
+                  <span>📢</span>
+                  انضم إلى القناة
+                </a>
 
-        </div>
+              </div>
 
-      </section>
+              <div className="help-decor help-decor-left">
+                <LeafDecoration />
+              </div>
+            </div>
 
       {/* =====================================================
           عن مستقر اليتيم
@@ -625,7 +636,7 @@ function Home() {
       </section>
 
     </main>
-  )
+            )
 }
 
 export default Home

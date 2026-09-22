@@ -2,6 +2,7 @@ function Aids() {
   const aids = [
     {
       id: 1,
+      slug: 'unrwa',
       name: 'وكالة الأونروا',
       status: 'الخدمات متاحة حسب البرنامج',
       description:
@@ -12,6 +13,7 @@ function Aids() {
 
     {
       id: 2,
+      slug: 'mosd',
       name: 'وزارة التنمية الاجتماعية الفلسطينية',
       status: 'بوابة المساعدات الاجتماعية',
       description:
@@ -21,6 +23,7 @@ function Aids() {
 
     {
       id: 3,
+      slug: 'prcs',
       name: 'جمعية الهلال الأحمر الفلسطيني',
       status: 'خدمات ومساعدات إنسانية',
       description:
@@ -30,6 +33,7 @@ function Aids() {
 
     {
       id: 4,
+      slug: 'blda',
       name: 'جمعية تطوير بيت لاهيا',
       status: 'برامج إغاثية وتنموية',
       description:
@@ -39,6 +43,7 @@ function Aids() {
 
     {
       id: 5,
+      slug: 'unicef',
       name: 'اليونيسف - دولة فلسطين',
       status: 'برامج إنسانية ودعم للأطفال',
       description:
@@ -48,6 +53,7 @@ function Aids() {
 
     {
       id: 6,
+      slug: 'wfp',
       name: 'برنامج الأغذية العالمي',
       status: 'مساعدات غذائية ونقدية',
       description:
@@ -76,11 +82,9 @@ function Aids() {
         {aids.map((aid) => (
           <a
             key={aid.id}
-            href={aid.link}
-            target="_blank"
-            rel="noopener noreferrer"
+            href={`/aids/${aid.slug}`}
             className="aid-card"
-            aria-label={`فتح ${aid.name}`}
+            aria-label={`عرض معلومات ${aid.name}`}
           >
 
             {aid.logo ? (
@@ -95,7 +99,9 @@ function Aids() {
               </div>
             )}
 
-            <h2>{aid.name}</h2>
+            <h2>
+              {aid.name}
+            </h2>
 
             <span className="aid-status">
               🟢 {aid.status}
@@ -106,7 +112,8 @@ function Aids() {
             </p>
 
             <span className="card-action">
-              فتح الرابط ←
+              عرض معلومات الجهة
+              <span>←</span>
             </span>
 
           </a>

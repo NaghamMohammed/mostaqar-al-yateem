@@ -1073,10 +1073,8 @@ img {
 
   line-height: 1.8;
 }
-
-
 /* =========================================================
-   10) HELP / CONTACT
+   HELP SECTION
 ========================================================= */
 
 .help-section {
@@ -1085,12 +1083,11 @@ img {
 
   margin: 35px auto;
 
-  padding: 22px 30px;
+  padding: 24px 30px;
 
   background: #edf7f1;
 
   border: 1px solid #d6ebe0;
-
   border-radius: 20px;
 
   display: flex;
@@ -1102,7 +1099,6 @@ img {
   direction: rtl;
 
   position: relative;
-
   overflow: hidden;
 
   text-align: center;
@@ -1118,31 +1114,31 @@ img {
   align-items: center;
   justify-content: center;
 
-  border-radius: 50%;
-
   background: #ffffff;
 
+  border-radius: 50%;
+
   font-size: 27px;
+
+  box-shadow: 0 5px 15px rgba(40, 80, 65, 0.08);
 }
 
 .help-content {
-  flex: 0 1 560px;
-
-  text-align: center;
+  flex: 1;
+  min-width: 0;
 }
 
 .help-content h3 {
-  margin: 0 0 6px;
+  margin: 0 0 5px;
 
   color: #287761;
 
-  font-size: 20px;
+  font-size: 19px;
+  font-weight: 800;
 }
 
 .help-content p {
-  margin: 0 auto;
-
-  max-width: 560px;
+  margin: 0;
 
   color: #647b71;
 
@@ -1151,22 +1147,31 @@ img {
   line-height: 1.8;
 }
 
-.help-button {
-  flex-shrink: 0;
+/* الأزرار */
 
-  display: inline-flex;
-
+.help-actions {
+  display: flex;
   align-items: center;
-  justify-content: center;
 
   gap: 10px;
 
-  padding: 11px 24px;
+  flex-shrink: 0;
+}
 
-  border-radius: 28px;
+.help-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 7px;
+
+  min-width: 125px;
+
+  padding: 11px 17px;
+
+  border-radius: 25px;
 
   background: #27856d;
-
   color: #ffffff;
 
   text-decoration: none;
@@ -1174,52 +1179,67 @@ img {
   font-size: 13px;
   font-weight: 700;
 
-  white-space: nowrap;
+  box-shadow: 0 5px 14px rgba(39, 133, 109, 0.14);
 
-  transition: 0.25s ease;
+  transition:
+    background 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
 }
 
 .help-button:hover {
   background: #2f6f55;
 
   transform: translateY(-2px);
+
+  box-shadow: 0 8px 18px rgba(39, 133, 109, 0.18);
 }
 
+.help-button span {
+  font-size: 16px;
+}
 
-/* زخارف المساعدة */
+/* زر قناة الواتساب */
+
+.help-channel-button {
+  background: #ffffff;
+
+  color: #287761;
+
+  border: 1px solid #c9e2d6;
+
+  box-shadow: none;
+}
+
+.help-channel-button:hover {
+  background: #f7fbf8;
+
+  color: #216650;
+
+  border-color: #a9d0bd;
+}
+
+/* الزخارف */
 
 .help-decor {
   position: absolute;
 
-  bottom: -18px;
-
-  width: 70px;
-  height: 95px;
-
-  color: #79bda3;
-
-  opacity: 0.75;
+  color: #4f9677;
 
   pointer-events: none;
 }
 
 .help-decor-right {
-  right: 8px;
+  right: -10px;
+  bottom: -18px;
 }
 
 .help-decor-left {
-  left: 8px;
+  left: -10px;
+  top: -18px;
 
   transform: scaleX(-1);
 }
-
-.leaf-decoration {
-  width: 100%;
-  height: 100%;
-
-  display: block;
-}
-
 
 /* =========================================================
    11) HOME BOTTOM MESSAGE
@@ -1947,6 +1967,130 @@ img {
   cursor: pointer;
 }
 
+/* =========================================================
+   WHATSAPP CHANNEL INSIDE PANEL
+========================================================= */
+
+.whatsapp-divider {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  margin: 18px 0;
+}
+
+.whatsapp-divider::before,
+.whatsapp-divider::after {
+  content: "";
+
+  flex: 1;
+
+  height: 1px;
+
+  background: #e1ece6;
+}
+
+.whatsapp-divider span {
+  color: #8aa097;
+
+  font-size: 11px;
+}
+
+/* صندوق القناة */
+
+.whatsapp-channel-box {
+  padding: 14px;
+
+  background: #f4faf6;
+
+  border: 1px solid #dcece3;
+
+  border-radius: 14px;
+
+  direction: rtl;
+
+  text-align: right;
+}
+
+.whatsapp-channel-icon {
+  width: 38px;
+  height: 38px;
+
+  margin-bottom: 8px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #ffffff;
+
+  font-size: 19px;
+
+  box-shadow: 0 3px 10px rgba(40, 80, 65, 0.06);
+}
+
+.whatsapp-channel-content h4 {
+  margin: 0 0 4px;
+
+  color: #287761;
+
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.whatsapp-channel-content p {
+  margin: 0 0 12px;
+
+  color: #71877d;
+
+  font-size: 11px;
+
+  line-height: 1.7;
+}
+
+.whatsapp-channel-link {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 8px;
+
+  padding: 9px 12px;
+
+  border-radius: 20px;
+
+  background: #ffffff;
+
+  border: 1px solid #c8e1d5;
+
+  color: #287761;
+
+  text-decoration: none;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.whatsapp-channel-link:hover {
+  background: #edf7f1;
+
+  border-color: #a9cfbd;
+
+  transform: translateY(-1px);
+}
+
+.whatsapp-channel-link span {
+  font-size: 15px;
+}
 
 /* =========================================================
    15) FOOTER
@@ -2523,6 +2667,46 @@ img {
     font-size: 14px;
   }
 
+ 
+  .help-section {
+    width: 88%;
+
+    margin: 30px auto;
+
+    padding: 25px 20px;
+
+    flex-direction: column;
+
+    gap: 15px;
+  }
+
+  .help-content {
+    width: 100%;
+  }
+
+  .help-content h3 {
+    font-size: 19px;
+  }
+
+  .help-content p {
+    font-size: 13px;
+  }
+
+  .help-actions {
+    width: 100%;
+
+    flex-direction: column;
+
+    gap: 10px;
+  }
+
+  .help-button {
+    width: 100%;
+    max-width: 280px;
+  }
+
+}
+
 
   /* ================= AIDS ================= */
 
@@ -2664,7 +2848,7 @@ img {
     width: 72%;
     height: 72%;
   }
-}
+
 
 
 /* =========================================================
@@ -2757,4 +2941,683 @@ img {
   .service-art {
     height: 115px;
   }
+}
+
+
+
+/* =========================================================
+   AID DETAILS PAGE
+   Mobile First
+========================================================= */
+
+.aid-details-page {
+  width: 100%;
+  min-height: 100vh;
+  padding: 25px 5% 60px;
+  background:
+    radial-gradient(
+      circle at 85% 10%,
+      rgba(220, 240, 230, 0.35),
+      transparent 30%
+    ),
+    #fbfaf5;
+  direction: rtl;
+}
+
+/* =========================================================
+   AD PLACEHOLDER
+========================================================= */
+
+.ad-placeholder {
+  width: 100%;
+  min-height: 70px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin: 0 auto;
+
+  border: 1px dashed #d9e7df;
+  border-radius: 12px;
+
+  background: rgba(255, 255, 255, 0.55);
+
+  color: #9aaa9f;
+
+  font-size: 11px;
+}
+
+.aid-top-ad {
+  width: min(1000px, 100%);
+  margin-bottom: 25px;
+}
+
+.aid-middle-ad {
+  width: min(1000px, 100%);
+  margin: 30px auto;
+}
+
+/* =========================================================
+   PAGE HEADER
+========================================================= */
+
+.aid-details-header {
+  width: min(1000px, 100%);
+  margin: 0 auto;
+}
+
+.aid-back-link {
+  display: inline-flex;
+  align-items: center;
+
+  margin-bottom: 15px;
+
+  color: #5f8172;
+
+  text-decoration: none;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  transition: color 0.2s ease;
+}
+
+.aid-back-link:hover {
+  color: #1d8060;
+}
+
+/* =========================================================
+   ORGANIZATION INFO CARD
+========================================================= */
+
+.aid-details-card {
+  width: 100%;
+
+  padding: 25px 20px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  text-align: center;
+
+  background: #ffffff;
+
+  border: 1px solid #e1eee7;
+  border-radius: 22px;
+
+  box-shadow:
+    0 8px 28px rgba(40, 80, 65, 0.07);
+}
+
+.aid-details-logo {
+  width: 85px;
+  height: 85px;
+
+  margin-bottom: 18px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 20px;
+
+  background: #f4f9f6;
+
+  border: 1px solid #e2eee8;
+
+  overflow: hidden;
+}
+
+.aid-details-logo img {
+  width: 72px;
+  height: 72px;
+
+  display: block;
+
+  object-fit: contain;
+}
+
+.aid-details-logo span {
+  font-size: 34px;
+}
+
+.aid-details-content {
+  width: 100%;
+}
+
+.aid-details-status {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 10px;
+
+  padding: 6px 11px;
+
+  border-radius: 999px;
+
+  background: #eef7f2;
+
+  color: #4d7666;
+
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+.aid-details-content h1 {
+  margin: 0 0 12px;
+
+  color: #245c4b;
+
+  font-size: 25px;
+  font-weight: 800;
+
+  line-height: 1.5;
+}
+
+.aid-details-content p {
+  max-width: 700px;
+
+  margin: 0 auto;
+
+  color: #71877d;
+
+  font-size: 13px;
+
+  line-height: 1.9;
+}
+
+/* =========================================================
+   SECTION HEADINGS
+========================================================= */
+
+.aid-news-section,
+.aid-services-section {
+  width: min(1000px, 100%);
+
+  margin: 32px auto 0;
+}
+
+.aid-section-heading {
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  margin-bottom: 15px;
+}
+
+.aid-section-heading > span {
+  width: 42px;
+  height: 42px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 13px;
+
+  background: #eef7f2;
+
+  font-size: 20px;
+}
+
+.aid-section-heading h2 {
+  margin: 0 0 3px;
+
+  color: #245c4b;
+
+  font-size: 19px;
+  font-weight: 800;
+}
+
+.aid-section-heading p {
+  margin: 0;
+
+  color: #84988e;
+
+  font-size: 11px;
+
+  line-height: 1.6;
+}
+
+/* =========================================================
+   NEWS PLACEHOLDER
+========================================================= */
+
+.aid-news-placeholder {
+  padding: 30px 20px;
+
+  text-align: center;
+
+  background: #ffffff;
+
+  border: 1px solid #e1eee7;
+  border-radius: 18px;
+
+  box-shadow:
+    0 5px 20px rgba(40, 80, 65, 0.05);
+}
+
+.news-placeholder-icon {
+  width: 58px;
+  height: 58px;
+
+  margin: 0 auto 12px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #eef7f2;
+
+  font-size: 25px;
+}
+
+.aid-news-placeholder h3 {
+  margin: 0 0 8px;
+
+  color: #315f50;
+
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.aid-news-placeholder p {
+  max-width: 550px;
+
+  margin: 0 auto;
+
+  color: #81938b;
+
+  font-size: 12px;
+
+  line-height: 1.8;
+}
+
+/* =========================================================
+   SERVICES
+========================================================= */
+
+.aid-service-box {
+  padding: 22px 20px;
+
+  background: #ffffff;
+
+  border: 1px solid #e1eee7;
+  border-radius: 18px;
+
+  box-shadow:
+    0 5px 20px rgba(40, 80, 65, 0.05);
+}
+
+.aid-service-box h3 {
+  margin: 0 0 8px;
+
+  color: #315f50;
+
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.aid-service-box p {
+  margin: 0 0 18px;
+
+  color: #71877d;
+
+  font-size: 12px;
+
+  line-height: 1.8;
+}
+
+.aid-official-button {
+  width: 100%;
+
+  min-height: 46px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 8px;
+
+  padding: 10px 15px;
+
+  border-radius: 24px;
+
+  background: #1d8060;
+
+  color: #ffffff;
+
+  text-decoration: none;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.aid-official-button:hover {
+  background: #155f48;
+
+  transform: translateY(-1px);
+}
+
+.aid-official-button span {
+  font-size: 16px;
+}
+
+/* =========================================================
+   NOTICE
+========================================================= */
+
+.aid-notice {
+  width: min(1000px, 100%);
+
+  margin: 25px auto 0;
+
+  padding: 14px 16px;
+
+  display: flex;
+  align-items: flex-start;
+
+  gap: 10px;
+
+  background: #f4f8f5;
+
+  border: 1px solid #e0ebe5;
+
+  border-radius: 14px;
+
+  color: #71877d;
+}
+
+.aid-notice > span {
+  flex-shrink: 0;
+
+  font-size: 15px;
+}
+
+.aid-notice p {
+  margin: 0;
+
+  font-size: 11px;
+
+  line-height: 1.8;
+}
+
+/* =========================================================
+   NOT FOUND
+========================================================= */
+
+.aid-not-found {
+  width: min(600px, 100%);
+
+  margin: 70px auto;
+
+  padding: 35px 20px;
+
+  text-align: center;
+
+  background: #ffffff;
+
+  border: 1px solid #e1eee7;
+
+  border-radius: 22px;
+
+  box-shadow:
+    0 8px 28px rgba(40, 80, 65, 0.07);
+}
+
+.aid-not-found-icon {
+  font-size: 40px;
+
+  margin-bottom: 12px;
+}
+
+.aid-not-found h1 {
+  margin: 0 0 10px;
+
+  color: #245c4b;
+
+  font-size: 23px;
+}
+
+.aid-not-found p {
+  margin: 0 0 20px;
+
+  color: #71877d;
+
+  font-size: 13px;
+
+  line-height: 1.8;
+}
+
+.aid-back-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 8px;
+
+  padding: 10px 18px;
+
+  border-radius: 22px;
+
+  background: #1d8060;   
+}
+
+
+/* =====================================================
+   بطاقات الأخبار - مستقر اليتيم
+===================================================== */
+
+.aid-news-grid {
+  width: 100%;
+  margin-top: 24px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.aid-news-card {
+  min-width: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  border: 1px solid #e1eee7;
+  border-radius: 18px;
+  text-decoration: none;
+  box-shadow: 0 5px 18px rgba(40, 80, 65, 0.06);
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.aid-news-card:hover {
+  transform: translateY(-4px);
+  border-color: #c9dfd4;
+  box-shadow: 0 12px 28px rgba(40, 80, 65, 0.11);
+}
+
+
+/* =====================================================
+   صورة الخبر
+===================================================== */
+
+.aid-news-image {
+  position: relative;
+  width: 100%;
+  height: 190px;
+  overflow: hidden;
+  background: #f1f6f3;
+}
+
+.aid-news-image img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.aid-news-card:hover .aid-news-image img {
+  transform: scale(1.04);
+}
+
+
+/* =====================================================
+   محتوى الخبر
+===================================================== */
+
+.aid-news-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 18px;
+  direction: rtl;
+  text-align: right;
+}
+
+
+/* =====================================================
+   التصنيف
+===================================================== */
+
+.aid-news-category {
+  display: inline-flex;
+  align-items: center;
+  margin-bottom: 10px;
+  padding: 5px 10px;
+  border-radius: 20px;
+  background: #edf7f1;
+  color: #287761;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+
+/* =====================================================
+   العنوان
+===================================================== */
+
+.aid-news-content h3 {
+  width: 100%;
+  margin: 0 0 10px;
+  color: #285c4c;
+  font-size: 17px;
+  font-weight: 800;
+  line-height: 1.65;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+
+/* =====================================================
+   الملخص
+===================================================== */
+
+.aid-news-content p {
+  width: 100%;
+  margin: 0 0 12px;
+  color: #71877d;
+  font-size: 12px;
+  line-height: 1.8;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+
+/* =====================================================
+   التاريخ
+===================================================== */
+
+.aid-news-content time {
+  margin-top: auto;
+  color: #91a39b;
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+
+/* =====================================================
+   رابط قراءة الإعلان
+===================================================== */
+
+.aid-news-link {
+  width: 100%;
+  margin-top: 16px;
+  padding-top: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid #edf2ef;
+  color: #287761;
+  font-size: 12px;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.aid-news-link span {
+  font-size: 17px;
+  transition: transform 0.2s ease;
+}
+
+.aid-news-card:hover .aid-news-link span {
+  transform: translateX(-4px);
+}
+
+
+/* =====================================================
+   شاشة متوسطة
+===================================================== */
+
+@media (max-width: 950px) {
+
+  .aid-news-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+}
+
+
+/* =====================================================
+   الهاتف
+===================================================== */
+
+@media (max-width: 620px) {
+
+  .aid-news-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .aid-news-image {
+    height: 200px;
+  }
+
+  .aid-news-content {
+    padding: 16px;
+  }
+
+  .aid-news-content h3 {
+    font-size: 16px;
+  }
+
 }
