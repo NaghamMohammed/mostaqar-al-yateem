@@ -54,13 +54,12 @@ function Aids() {
         'يقدم مساعدات غذائية ونقدية وخدمات تغذية ودعمًا لسبل العيش للأسر المتضررة في غزة والضفة الغربية.',
       link: 'https://www.wfp.org/emergencies/palestine-emergency',
     },
-  ];
+  ]
 
   return (
     <main className="aids-page aids-background">
 
       <section className="aids-header">
-
         <h1>
           المساعدات الإنسانية
           <span>🌿</span>
@@ -70,14 +69,19 @@ function Aids() {
           أهم روابط المساعدة والمؤسسات الإنسانية
           وروابط التسجيل الرسمية.
         </p>
-
       </section>
 
       <section className="aids-list">
 
         {aids.map((aid) => (
-
-          <article className="aid-card" key={aid.id}>
+          <a
+            key={aid.id}
+            href={aid.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="aid-card"
+            aria-label={`فتح ${aid.name}`}
+          >
 
             {aid.logo ? (
               <img
@@ -101,22 +105,17 @@ function Aids() {
               {aid.description}
             </p>
 
-            <a
-              href={aid.link}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              عرض التفاصيل ←
-            </a>
+            <span className="card-action">
+              فتح الرابط ←
+            </span>
 
-          </article>
-
+          </a>
         ))}
 
       </section>
 
     </main>
-  );
+  )
 }
 
-export default Aids;
+export default Aids

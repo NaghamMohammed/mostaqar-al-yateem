@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { NavLink } from 'react-router-dom'
 import searchData from '../data/searchData'
 import logo from '../assets/logo.png'
@@ -7,6 +7,23 @@ function Header() {
   const [searchOpen, setSearchOpen] = useState(false)
   const [searchQuery, setSearchQuery] = useState('')
   const [menuOpen, setMenuOpen] = useState(false)
+
+  const searchRef = useRef(null)
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (searchRef.current && !searchRef.current.contains(event.target)) {
+        setSearchOpen(false)
+        setSearchQuery('')
+      }
+    }
+
+    document.addEventListener('mousedown', handleClickOutside)
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside)
+    }
+  }, [])
 
   const normalizeArabic = (text) => {
     return text
@@ -24,6 +41,7 @@ function Header() {
         const text = normalizeArabic(
           `${item.name} ${item.category} ${item.description}`
         )
+
         return text.includes(normalizedQuery)
       })
     : []
@@ -37,16 +55,30 @@ function Header() {
     setSearchQuery('')
   }
 
+  const handleSearchToggle = () => {
+    setSearchOpen((current) => !current)
+
+    if (searchOpen) {
+      setSearchQuery('')
+    }
+  }
+
   return (
     <header className="header">
 
       {/* الشعار */}
-      <a href="/" className="logo" onClick={closeMenu} aria-label="مستقر اليتيم - الرئيسية">
+      <a
+        href="/"
+        className="logo"
+        onClick={closeMenu}
+        aria-label="مستقر اليتيم - الرئيسية"
+      >
         <img src={logo} alt="مستقر اليتيم" />
       </a>
 
-      {/* روابط الموقع */}
+      {/* قائمة الموقع */}
       <nav className={`nav ${menuOpen ? 'nav-open' : ''}`}>
+
         <NavLink
           to="/"
           end
@@ -82,34 +114,43 @@ function Header() {
           فرص العمل والتمكين
         </a>
 
-        <a href="/#about" onClick={closeMenu}>
+        <a
+          href="/#about"
+          className="header-anchor-link"
+          onClick={closeMenu}
+        >
           من نحن
         </a>
 
-        <a href="/#contact" onClick={closeMenu}>
+        <a
+          href="/#help-section"
+          className="header-anchor-link"
+          onClick={closeMenu}
+        >
           تواصل معنا
         </a>
+
       </nav>
 
-      {/* البحث */}
-      <div className="search-wrapper">
+      {/* منطقة البحث */}
+      <div className="search-wrapper" ref={searchRef}>
+
         <button
+          type="button"
           className="search-button"
-          onClick={() => {
-            setSearchOpen(!searchOpen)
-            if (searchOpen) {
-              setSearchQuery('')
-            }
-          }}
+          onClick={handleSearchToggle}
           aria-label="فتح البحث"
           aria-expanded={searchOpen}
         >
-          <span className="search-button-icon">🔍</span>
-          <span className="search-button-label">اضغط للبحث</span>
+          <span className="search-button-icon">
+            🔍
+            <span className="search-text">اضغط للبحث</span>
+          </span>
         </button>
 
         {searchOpen && (
           <div className="search-container">
+
             <input
               type="text"
               value={searchQuery}
@@ -121,6 +162,7 @@ function Header() {
 
             {searchQuery && (
               <div className="search-results">
+
                 {searchResults.length > 0 ? (
                   searchResults.map((result) => (
                     <a
@@ -129,6 +171,7 @@ function Header() {
                       className="search-result"
                       onClick={closeSearch}
                     >
+
                       <div className="search-result-logo">
                         {result.logo ? (
                           <img src={result.logo} alt="" />
@@ -139,6 +182,7 @@ function Header() {
 
                       <div className="search-result-name">
                         {result.name}
+
                         <span className="search-result-info">
                           {result.category}
                         </span>
@@ -147,6 +191,7 @@ function Header() {
                       <div className="search-result-description">
                         {result.description}
                       </div>
+
                     </a>
                   ))
                 ) : (
@@ -154,14 +199,18 @@ function Header() {
                     لا توجد نتائج مطابقة
                   </div>
                 )}
+
               </div>
             )}
+
           </div>
         )}
+
       </div>
 
-      {/* زر الهاتف */}
+      {/* زر القائمة في الهاتف */}
       <button
+        type="button"
         className="mobile-menu-button"
         onClick={() => setMenuOpen((current) => !current)}
         aria-label={menuOpen ? 'إغلاق القائمة' : 'فتح القائمة'}

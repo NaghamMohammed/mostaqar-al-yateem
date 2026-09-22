@@ -1,11 +1,12 @@
 /* =========================================================
    مستقر اليتيم - App.css
-   نسخة منظمة ونظيفة بدون تكرار القواعد
+   النسخة النهائية المنظمة
    RTL + Responsive
 ========================================================= */
 
+
 /* =========================================================
-   1) Global
+   1) GLOBAL
 ========================================================= */
 
 * {
@@ -24,10 +25,10 @@ body,
 
 html {
   overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
 body {
-  margin: 0;
   background: #fbfaf5;
   color: #245c4b;
   font-family: inherit;
@@ -47,24 +48,33 @@ img {
   max-width: 100%;
 }
 
+
 /* =========================================================
-   2) Header / Navbar
+   2) HEADER
 ========================================================= */
 
 .header {
   width: 100%;
   min-height: 82px;
   padding: 10px 5.5%;
+
   background: #eef7f2;
   border-bottom: 1px solid #dcebe4;
+
   display: flex;
   align-items: center;
   gap: 24px;
+
   direction: rtl;
+
   position: relative;
   z-index: 1000;
+
   overflow: visible;
 }
+
+
+/* الشعار */
 
 .logo {
   display: flex;
@@ -77,274 +87,366 @@ img {
   width: 175px;
   height: auto;
   display: block;
-  object-fit: contain;
 }
+
+
+/* =========================================================
+   3) NAVBAR
+========================================================= */
 
 .nav {
   flex: 1;
   min-width: 0;
+  flex-shrink: 0;
+
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 5px;
+
+  gap: 28px;
+  margin-right: auto;
+
+  direction: rtl;
 }
 
 .nav > a {
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 10px 12px;
-  color: #285d4e;
+
+  color: #315b4d;
   text-decoration: none;
-  font-size: 14px;
-  font-weight: 700;
+
+  font-size: 15px;
+  font-weight: 600;
+
   white-space: nowrap;
-  border-radius: 8px;
-  transition: color 0.2s ease, background 0.2s ease;
+  padding: 8px 0;
+
+  transition: color 0.2s ease;
 }
 
 .nav > a:hover {
-  color: #1f755d;
-  background: rgba(255, 255, 255, 0.45);
+  color: #1d8060;
 }
 
 .nav > a.active {
-  color: #1f755d;
-  background: transparent;
+  color: #1d8060;
 }
 
 .nav > a.active::after {
   content: "";
+
   position: absolute;
-  right: 12px;
-  left: 12px;
-  bottom: 2px;
+  right: 0;
+  bottom: 0;
+
+  width: 100%;
   height: 2px;
+
+  background: #1d8060;
   border-radius: 10px;
-  background: #2f8f68;
 }
 
-.jobs-nav-link {
-  color: #285d4e !important;
+
+/* روابط من نحن وتواصل معنا */
+
+.header-anchor-link {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 10px 12px;
+
+  color: #285d4e;
+  text-decoration: none;
+
+  font-size: 14px;
+  font-weight: 700;
+
+  white-space: nowrap;
+
+  border-radius: 8px;
+
+  transition:
+    color 0.2s ease,
+    background 0.2s ease;
 }
 
-.mobile-menu-button {
-  display: none;
-  flex-shrink: 0;
-  border: none;
-  background: transparent;
-  color: #24745c;
-  font-size: 25px;
-  line-height: 1;
-  cursor: pointer;
+.header-anchor-link:hover {
+  color: #1f755d;
+  background: rgba(255, 255, 255, 0.45);
 }
+
 
 /* =========================================================
-   3) Navbar Search
+   4) SEARCH
 ========================================================= */
 
 .search-wrapper {
   position: relative;
+
   flex-shrink: 0;
-  width: 180px;
-  order: 3;
+
+  width: auto;
+  height: auto;
+
+  display: flex;
+  align-items: center;
+
+  z-index: 3000;
 }
 
 .search-button {
-  width: 100%;
-  min-height: 42px;
-  padding: 8px 13px;
-  border: 1px solid #d3e7dd;
-  border-radius: 12px;
-  background: rgba(255, 255, 255, 0.35);
-  color: #285d4e;
-  font-family: inherit;
-  font-size: 13px;
-  font-weight: 600;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+
+  padding: 0 !important;
+  margin: 0;
+
   cursor: pointer;
-  display: flex;
+
+  display: inline-flex;
   align-items: center;
-  justify-content: flex-start;
-  gap: 9px;
-  direction: rtl;
-  transition: 0.2s ease;
+  justify-content: center;
+
+  width: auto !important;
+  height: auto !important;
+
+  color: #315b4d;
+
+  transition: transform 0.2s ease;
 }
 
 .search-button:hover {
-  background: rgba(255, 255, 255, 0.65);
-  border-color: #bcdacc;
+  background: transparent !important;
+  transform: scale(1.05);
 }
 
-.search-icon {
-  order: 2;
-  font-family: Arial, sans-serif;
-  font-size: 25px;
-  line-height: 0.7;
-  transform: rotate(-20deg);
+.search-button-icon {
+  display: inline-flex;
+  align-items: center;
+
+  gap: 5px;
+
+  font-size: 15px;
+  line-height: 1;
 }
 
-.search-button > span:last-child {
-  order: 1;
-  flex: 1;
-  text-align: right;
-  color: #6b8379;
+.search-text {
+  white-space: nowrap;
 }
+
+
+/* مربع البحث */
 
 .search-container {
-  position: absolute;
-  top: calc(100% + 9px);
-  left: 0;
+  position: fixed;
+
+  top: 92px;
+  left: 5.5%;
   right: auto;
-  width: 320px;
-  max-width: min(320px, calc(100vw - 30px));
-  padding: 10px;
+
+  width: 350px;
+  max-width: calc(100vw - 30px);
+
+  padding: 12px;
+
   background: #ffffff;
-  border: 1px solid #d8e9e1;
+
+  border: 1px solid #dcebe4;
   border-radius: 14px;
-  box-shadow: 0 12px 30px rgba(38, 85, 70, 0.14);
+
+  box-shadow: 0 10px 30px rgba(40, 80, 65, 0.12);
+
   z-index: 5000;
 }
 
-.search-container input {
-  width: 100%;
-  height: 42px;
-  padding: 8px 13px;
-  border: 1px solid #bcd9cc;
-  border-radius: 10px;
-  outline: none;
-  background: #ffffff;
-  color: #315c4a;
-  font-family: inherit;
-  font-size: 13px;
-  direction: rtl;
-}
 
-.search-container input::placeholder {
-  color: #91a39b;
+.search-container input {
+  display: block;
+
+  width: 100%;
+  max-width: 100%;
+
+  padding: 11px 14px;
+
+  border: 1px solid #dcebe4;
+  border-radius: 10px;
+
+  outline: none;
+
+  font-family: inherit;
+  font-size: 14px;
+
+  direction: rtl;
+  text-align: right;
+
+  background: #f8fbf9;
 }
 
 .search-container input:focus {
-  border-color: #69a98a;
-  box-shadow: 0 0 0 3px rgba(47, 143, 104, 0.08);
+  border-color: #8bbda9;
+  background: #ffffff;
 }
 
+
+/* نتائج البحث */
+
 .search-results {
-  width: 100%;
-  max-height: 300px;
   margin-top: 8px;
+
+  max-height: 350px;
+
   overflow-y: auto;
   overflow-x: hidden;
-  direction: rtl;
 }
 
 .search-result {
-  display: grid;
-  grid-template-columns: 42px minmax(0, 1fr);
-  gap: 9px;
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
   padding: 10px;
-  color: #3f5e53;
+
+  color: #315b4d;
   text-decoration: none;
+
   border-radius: 10px;
+
+  direction: rtl;
+
   transition: background 0.2s ease;
 }
 
 .search-result:hover {
-  background: #f2f8f5;
+  background: #eef7f2;
 }
 
 .search-result-logo {
-  width: 40px;
-  height: 40px;
-  border-radius: 9px;
-  background: #f1f7f4;
+  width: 42px;
+  height: 42px;
+
+  flex-shrink: 0;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
+  border-radius: 8px;
+
+  background: #f3f8f5;
+
   overflow: hidden;
-  flex-shrink: 0;
 }
 
 .search-result-logo img {
   width: 100%;
   height: 100%;
-  padding: 5px;
+
   object-fit: contain;
 }
 
-.search-result-logo span {
-  font-size: 22px;
-}
-
 .search-result-name {
-  min-width: 0;
-  color: #286e5a;
+  display: flex;
+  flex-direction: column;
+
   font-size: 14px;
   font-weight: 700;
-  line-height: 1.5;
 }
 
 .search-result-info {
-  display: block;
-  width: fit-content;
   margin-top: 3px;
-  padding: 2px 7px;
-  color: #2f8f68;
-  background: #eef7f2;
-  border-radius: 5px;
-  font-size: 10px;
-  font-weight: 600;
+
+  font-size: 11px;
+  font-weight: 400;
+
+  color: #789286;
 }
 
 .search-result-description {
-  grid-column: 2;
-  color: #708179;
+  margin-right: auto;
+
   font-size: 11px;
-  line-height: 1.6;
+
+  color: #789286;
+
+  text-align: left;
 }
 
 .no-search-results {
-  padding: 18px;
-  color: #7c8c85;
+  padding: 15px;
+
   text-align: center;
+
+  color: #789286;
+
   font-size: 13px;
 }
 
+
 /* =========================================================
-   4) Home Page
+   5) MOBILE MENU BUTTON
+========================================================= */
+
+.mobile-menu-button {
+  display: none;
+
+  background: transparent;
+  border: none;
+
+  color: #315b4d;
+
+  font-size: 25px;
+
+  cursor: pointer;
+
+  padding: 5px;
+
+  line-height: 1;
+}
+
+.mobile-menu-button:hover {
+  background: #e5f2eb;
+}
+
+
+/* =========================================================
+   6) HOME
 ========================================================= */
 
 .home {
   width: 100%;
   min-height: 100vh;
+
   direction: rtl;
+
   background: #fbfaf5;
   color: #245c4b;
+
   overflow-x: hidden;
 }
+
 
 /* =========================================================
-   4) Home Page — التصميم النهائي
+   7) HERO
 ========================================================= */
 
-.home {
-  width: 100%;
-  min-height: 100vh;
-  direction: rtl;
-  background: #fbfaf5;
-  color: #245c4b;
-  overflow-x: hidden;
-}
-
-/* Hero */
 .hero {
   width: 100%;
-  min-height: 330px;
+  min-height: 420px;
+
   position: relative;
+
   display: grid;
   grid-template-columns: 52% 48%;
+
   direction: ltr;
+
   overflow: hidden;
+
   background: linear-gradient(
     90deg,
     #eef7f2 0%,
@@ -353,105 +455,149 @@ img {
   );
 }
 
+
+/* صورة Hero */
+
 .hero-image {
   grid-column: 1;
   grid-row: 1;
+
   width: 100%;
-  height: 330px;
+  height: 100%;
+
   position: relative;
+
   overflow: hidden;
+
   z-index: 1;
+
+  border: none;
+
+  -webkit-mask-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 1) 50%,
+    rgba(0, 0, 0, 0) 95%
+  );
+
+  mask-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 1) 50%,
+    rgba(0, 0, 0, 0) 95%
+  );
 }
 
 .hero-image img {
   width: 100%;
   height: 100%;
-  display: block;
+
   object-fit: cover;
-  object-position: center;
+
+  display: block;
+
+  border: none;
 }
 
-.hero-image::after {
-  content: "";
-  position: absolute;
-  inset: 0 0 0 auto;
-  width: 42%;
-  background: linear-gradient(
-    to left,
-    #fffaf0 0%,
-    rgba(255, 250, 240, 0.82) 22%,
-    rgba(255, 250, 240, 0.35) 55%,
-    rgba(255, 250, 240, 0) 100%
-  );
-  pointer-events: none;
-}
+
+/* محتوى Hero */
 
 .hero-content {
   grid-column: 2;
   grid-row: 1;
+
   width: 100%;
   min-width: 0;
-  padding: 45px 7% 55px 5%;
+
+  padding: 60px 7% 80px 5%;
+
   display: flex;
   flex-direction: column;
+
   justify-content: center;
   align-items: flex-start;
+
   direction: rtl;
   text-align: right;
+
   position: relative;
   z-index: 3;
 }
 
 .hero-small-title {
   display: inline-block;
-  margin-bottom: 6px;
+
+  margin-bottom: 8px;
+
   color: #579979;
+
   font-size: 14px;
   font-weight: 700;
+
+  letter-spacing: 0.5px;
 }
 
 .hero-content h1 {
-  margin: 0 0 4px;
+  margin: 0 0 6px;
+
   color: #287761;
-  font-size: 43px;
+
+  font-size: 46px;
   font-weight: 800;
+
   line-height: 1.25;
 }
 
 .hero-content h2 {
-  margin: 0 0 12px;
+  margin: 0 0 16px;
+
   color: #226955;
-  font-size: 22px;
+
+  font-size: 24px;
   font-weight: 700;
+
   line-height: 1.5;
 }
 
 .hero-description {
   max-width: 570px;
+
   margin: 0;
+
   color: #60766d;
-  font-size: 15px;
+
+  font-size: 16px;
+
   line-height: 1.9;
 }
 
 .hero-buttons {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 18px;
+
+  gap: 12px;
+
+  margin-top: 24px;
 }
 
 .hero-button {
   display: inline-flex;
+
   align-items: center;
   justify-content: center;
+
   gap: 10px;
-  padding: 10px 21px;
+
+  padding: 11px 24px;
+
   border-radius: 28px;
+
   text-decoration: none;
+
   font-size: 14px;
   font-weight: 700;
-  transition: 0.25s;
+
+  transition: all 0.25s ease;
+
+  box-shadow: 0 4px 10px rgba(40, 119, 97, 0.1);
 }
 
 .hero-button.primary {
@@ -459,97 +605,157 @@ img {
   color: #ffffff;
 }
 
+.hero-button.primary:hover {
+  background: #1e6d58;
+}
+
 .hero-button.secondary {
   background: #ffffff;
   color: #287761;
+
   border: 1px solid #cfe3d9;
 }
 
-.hero-button:hover {
-  transform: translateY(-2px);
+.hero-button.secondary:hover {
+  background: #f4faf7;
 }
 
-/* الانحناء الناعم بين الـHero والخدمات */
+.hero-button:hover {
+  transform: translateY(-3px);
+
+  box-shadow: 0 6px 15px rgba(40, 119, 97, 0.15);
+}
+
+
+/* موجة Hero */
+
 .hero::after {
   content: "";
+
   position: absolute;
-  left: -5%;
-  bottom: -65px;
-  width: 110%;
-  height: 105px;
-  background: #fbfaf5;
-  border-radius: 50% 50% 0 0;
+
+  left: 0;
+  bottom: 0;
+
+  width: 100%;
+  height: 80px;
+
+  background: #ffffff;
+
   z-index: 4;
+
   pointer-events: none;
+
+  clip-path: ellipse(
+    60% 60px at 50% 80px
+  );
 }
 
-/* Services */
+
+/* =========================================================
+   8) SERVICES
+========================================================= */
+
 .services {
   width: 100%;
+
   padding: 42px 4% 48px;
-  background: #c5e3db24;
+
+  background: #fbfaf5;
+
   text-align: center;
 }
 
 .services-header {
   max-width: 760px;
+
   margin: 0 auto 28px;
 }
 
 .section-title-decoration {
   display: flex;
+
   align-items: center;
   justify-content: center;
+
   gap: 14px;
 }
 
 .section-title-decoration span {
   display: block;
+
   width: 50px;
   height: 2px;
+
   background: #72a992;
 }
 
 .services-header h3,
 .about-section h3 {
   margin: 0;
+
   color: #287761;
+
   font-size: 29px;
+
   line-height: 1.5;
 }
 
 .services-header > p {
   margin: 8px auto 0;
+
   color: #71847b;
+
   font-size: 15px;
+
   line-height: 1.8;
 }
+
+
+/* بطاقات الخدمات الرئيسية */
 
 .service-cards {
   width: 100%;
   max-width: 1120px;
+
   margin: 0 auto;
+
   display: grid;
+
   grid-template-columns: repeat(3, 1fr);
+
   gap: 16px;
 }
 
 .service-card {
   min-height: 350px;
+
   padding: 24px 20px;
+
   border-radius: 16px;
+
   text-decoration: none;
+
   text-align: center;
+
   border: 1px solid transparent;
+
   display: flex;
   flex-direction: column;
   align-items: center;
+
   transition: 0.25s;
+
+  position: relative;
+
+  overflow: hidden;
 }
 
 .service-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 14px 28px rgba(38, 93, 76, 0.10);
+
+  box-shadow:
+    0 14px 28px rgba(38, 93, 76, 0.10);
 }
 
 .service-card-aids {
@@ -567,52 +773,137 @@ img {
   border-color: #cce5ef;
 }
 
+
+/* أيقونة الخدمة */
+
 .service-icon {
   width: 70px;
   height: 70px;
+
   flex-shrink: 0;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
   margin-bottom: 14px;
+
   border-radius: 50%;
+
   background: rgba(255, 255, 255, 0.72);
+
   font-size: 35px;
+
+  position: relative;
+  z-index: 3;
 }
+
+.service-icon-svg {
+  width: 70%;
+  height: 70%;
+
+  overflow: visible;
+}
+
+.service-icon-svg > circle:first-child {
+  fill: currentColor;
+  opacity: 0.10;
+}
+
+.service-icon-svg .icon-fill {
+  fill: currentColor;
+  stroke: none;
+}
+
+.service-icon-svg .icon-stroke,
+.service-icon-svg .icon-stroke-box {
+  fill: none;
+
+  stroke: currentColor;
+
+  stroke-width: 2.8;
+
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.service-card-aids .service-icon,
+.service-card-aids .service-icon-svg {
+  color: #13866d;
+}
+
+.service-card-orphans .service-icon,
+.service-card-orphans .service-icon-svg {
+  color: #e97c78;
+}
+
+.service-card-jobs .service-icon,
+.service-card-jobs .service-icon-svg {
+  color: #2585b9;
+}
+
+
+/* محتوى البطاقة */
 
 .service-card-content {
   flex: 1;
+
   width: 100%;
+
+  position: relative;
+  z-index: 3;
 }
 
 .service-card-content h4 {
   margin: 0 0 9px;
+
   color: #286c5b;
+
   font-size: 21px;
+
   line-height: 1.5;
 }
 
 .service-card-content p {
   max-width: 290px;
+
   margin: 0 auto;
+
   color: #607a70;
+
   font-size: 14px;
+
   line-height: 1.85;
 }
 
+
+/* رابط البطاقة */
+
 .card-link {
   min-width: 165px;
+
   margin-top: 18px;
+
   padding: 9px 16px;
+
   border-radius: 28px;
+
   background: #27856d;
+
   color: #ffffff;
+
   display: inline-flex;
+
   justify-content: center;
   align-items: center;
+
   gap: 12px;
+
   font-size: 13px;
   font-weight: 700;
+
+  position: relative;
+  z-index: 4;
 }
 
 .card-link span {
@@ -621,115 +912,382 @@ img {
 
 .external-note {
   display: block;
+
   margin-top: 7px;
+
   color: #71909b;
+
   font-size: 11px;
 }
 
-/* Help */
-.help-section {
-  width: calc(100% - 8%);
-  max-width: 1120px;
-  margin: 20px 0px 20px 0px;
-  /* margin: 0 auto 30px; */
-  padding: 18px 28px;
-  background: #edf7f1;
-  border: 1px solid #d6ebe0;
+
+/* رسومات البطاقات */
+
+.service-art {
+  position: absolute;
+
+  right: 0;
+  left: 0;
+  bottom: -2px;
+
+  height: 145px;
+
+  pointer-events: none;
+
+  z-index: 1;
+
+  display: flex;
+
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.service-art-svg {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  overflow: visible;
+}
+
+.service-art-aids {
+  color: #74c5a9;
+}
+
+.service-art-orphans {
+  color: #ee9994;
+}
+
+.service-art-jobs {
+  color: #63b5d5;
+}
+
+.service-card::after {
+  content: "";
+
+  position: absolute;
+
+  right: 0;
+  left: 0;
+  bottom: 0;
+
+  height: 125px;
+
+  background: linear-gradient(
+    to top,
+    rgba(255, 255, 255, 0.06),
+    rgba(255, 255, 255, 0)
+  );
+
+  pointer-events: none;
+
+  z-index: 2;
+}
+
+
+/* =========================================================
+   9) ABOUT
+========================================================= */
+
+.about-section {
+  width: 100%;
+
+  padding: 65px 6% 70px;
+
+  background: linear-gradient(
+    135deg,
+    #f8faf4,
+    #eef7f2
+  );
+
+  direction: rtl;
+}
+
+.about-content {
+  max-width: 950px;
+
+  margin: 0 auto;
+
+  text-align: center;
+}
+
+.about-main-text {
+  max-width: 800px;
+
+  margin: 22px auto 35px;
+
+  color: #637a70;
+
+  font-size: 16px;
+
+  line-height: 2;
+}
+
+.about-points {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 18px;
+}
+
+.about-points > div {
+  padding: 20px;
+
+  background: rgba(255, 255, 255, 0.78);
+
+  border: 1px solid #deebe4;
+
   border-radius: 18px;
+
+  display: flex;
+  align-items: flex-start;
+
+  gap: 14px;
+
+  text-align: right;
+
+  transition: 0.25s ease;
+}
+
+.about-points > div:hover {
+  transform: translateY(-4px);
+
+  box-shadow:
+    0 10px 25px rgba(47, 111, 85, 0.08);
+}
+
+.about-points span {
+  flex-shrink: 0;
+
+  font-size: 25px;
+}
+
+.about-points p {
+  margin: 0;
+
+  color: #657a72;
+
+  font-size: 14px;
+
+  line-height: 1.8;
+}
+
+
+/* =========================================================
+   10) HELP / CONTACT
+========================================================= */
+
+.help-section {
+  width: min(1120px, 92%);
+  max-width: 1120px;
+
+  margin: 35px auto;
+
+  padding: 22px 30px;
+
+  background: #edf7f1;
+
+  border: 1px solid #d6ebe0;
+
+  border-radius: 20px;
+
   display: flex;
   align-items: center;
-  gap: 18px;
+  justify-content: center;
+
+  gap: 24px;
+
   direction: rtl;
+
+  position: relative;
+
+  overflow: hidden;
+
+  text-align: center;
 }
 
 .help-icon {
   width: 58px;
   height: 58px;
+
   flex-shrink: 0;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
   border-radius: 50%;
+
   background: #ffffff;
+
   font-size: 27px;
 }
 
 .help-content {
-  flex: 1;
+  flex: 0 1 560px;
+
+  text-align: center;
 }
 
 .help-content h3 {
-  margin: 0 0 4px;
+  margin: 0 0 6px;
+
   color: #287761;
-  font-size: 19px;
+
+  font-size: 20px;
 }
 
 .help-content p {
-  margin: 0;
+  margin: 0 auto;
+
+  max-width: 560px;
+
   color: #647b71;
+
   font-size: 13px;
-  line-height: 1.7;
+
+  line-height: 1.8;
 }
 
 .help-button {
+  flex-shrink: 0;
+
   display: inline-flex;
+
   align-items: center;
+  justify-content: center;
+
   gap: 10px;
-  padding: 10px 23px;
+
+  padding: 11px 24px;
+
   border-radius: 28px;
+
   background: #27856d;
+
   color: #ffffff;
+
   text-decoration: none;
+
   font-size: 13px;
   font-weight: 700;
+
   white-space: nowrap;
+
+  transition: 0.25s ease;
 }
 
-/* الشريط الختامي */
+.help-button:hover {
+  background: #2f6f55;
+
+  transform: translateY(-2px);
+}
+
+
+/* زخارف المساعدة */
+
+.help-decor {
+  position: absolute;
+
+  bottom: -18px;
+
+  width: 70px;
+  height: 95px;
+
+  color: #79bda3;
+
+  opacity: 0.75;
+
+  pointer-events: none;
+}
+
+.help-decor-right {
+  right: 8px;
+}
+
+.help-decor-left {
+  left: 8px;
+
+  transform: scaleX(-1);
+}
+
+.leaf-decoration {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+}
+
+
+/* =========================================================
+   11) HOME BOTTOM MESSAGE
+========================================================= */
+
 .home-bottom-message {
-    position: relative;
-    padding: 24px 6% 45px;
-    background: #ffffff;
-    /* background: #eef7f2; */
-    text-align: center;
-    overflow: hidden;
+  position: relative;
+
+  padding: 24px 6% 45px;
+
+  background: #eef7f2;
+
+  text-align: center;
+
+  overflow: hidden;
 }
 
 .home-bottom-message::before {
   content: "";
+
   position: absolute;
+
   left: -8%;
   top: -40px;
+
   width: 116%;
   height: 90px;
+
   background: #fbfaf5;
+
   border-radius: 50%;
 }
 
 .home-bottom-message .section-title-decoration {
   position: relative;
+
   z-index: 1;
 }
 
 .home-bottom-message h3 {
   margin: 0;
+
   color: #287761;
+
   font-size: 19px;
 }
 
 .home-bottom-links {
   position: relative;
+
   z-index: 1;
+
   max-width: 650px;
+
   margin: 18px auto 0;
+
   display: flex;
+
   justify-content: center;
+
   gap: 0;
 }
 
 .home-bottom-links > div {
   min-width: 145px;
+
   padding: 0 20px;
+
   border-left: 1px solid #cfe3d9;
 }
 
@@ -743,328 +1301,628 @@ img {
 
 .home-bottom-links p {
   margin: 4px 0 0;
+
   color: #5f7168;
+
   font-size: 12px;
 }
 
+
 /* =========================================================
-   5) Aids Page
+   12) AIDS PAGE
 ========================================================= */
 
 .aids-page {
   width: 100%;
-  min-height: 70vh;
-  padding-bottom: 80px;
-  background: #ffffff;
+  min-height: 100vh;
+
+  padding: 45px 5% 70px;
+
   direction: rtl;
 }
 
 .aids-background {
-  min-height: calc(100vh - 100px);
-  padding-bottom: 60px;
   background:
     radial-gradient(
-      circle at 10% 20%,
-      rgba(47, 143, 104, 0.08) 0,
-      transparent 28%
-    ),
-    radial-gradient(
-      circle at 90% 80%,
-      rgba(47, 143, 104, 0.07) 0,
+      circle at 15% 20%,
+      rgba(220, 240, 230, 0.35),
       transparent 30%
     ),
-    linear-gradient(135deg, #f5fbf7, #eef7f2);
+    #fbfaf5;
 }
 
 .aids-header {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 70px 6% 40px;
+  max-width: 850px;
+
+  margin: 0 auto 35px;
+
   text-align: center;
 }
 
-.aids-header > span {
-  display: block;
-  margin-bottom: 10px;
-  font-size: 26px;
+.aids-header h1 {
+  margin: 0 0 12px;
+
+  color: #245c4b;
+
+  font-size: 32px;
+  font-weight: 800;
 }
 
-.aids-header h1 {
-  margin: 0 0 15px;
-  color: #2f6f55;
-  font-size: 38px;
-  font-weight: 700;
-  line-height: 1.5;
+.aids-header h1 span {
+  display: inline-block;
+
+  margin-right: 8px;
+
+  font-size: 25px;
 }
 
 .aids-header p {
   margin: 0;
-  color: #6b7f74;
-  font-size: 17px;
-  line-height: 1.9;
+
+  color: #6f887d;
+
+  font-size: 15px;
+
+  line-height: 1.8;
 }
 
+
+/* =========================================================
+   AIDS CARDS
+========================================================= */
+
 .aids-list {
-  width: 90%;
-  max-width: 1200px;
+  width: min(1120px, 100%);
+
   margin: 0 auto;
+
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 25px;
+
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+
+  gap: 22px;
 }
 
 .aid-card {
-  padding: 30px;
-  background: #f3faf6;
-  border: 1px solid #dceee4;
-  border-radius: 24px;
-  text-align: right;
-  transition: 0.3s;
+  min-width: 0;
+  min-height: 290px;
+
+  padding: 28px 24px 24px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  text-align: center;
+
+  background: #ffffff;
+
+  border: 1px solid #e1eee7;
+
+  border-radius: 20px;
+
+  color: #315b4d;
+
+  text-decoration: none;
+
+  box-shadow:
+    0 5px 20px rgba(40, 80, 65, 0.06);
+
+  cursor: pointer;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
 }
 
 .aid-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 30px rgba(47, 111, 85, 0.10);
+  transform: translateY(-6px);
+
+  border-color: #c6ded2;
+
+  box-shadow:
+    0 14px 32px rgba(40, 80, 65, 0.12);
 }
+
+.aid-card:active {
+  transform: translateY(-2px);
+}
+
+.aid-card:focus-visible {
+  outline: 2px solid #1d8060;
+  outline-offset: 4px;
+}
+
+
+/* شعار الجهة */
 
 .aid-logo {
-  width: 75px;
-  height: 75px;
-  margin: 0 auto 15px;
-  display: block;
+  width: 72px;
+  height: 72px;
+
+  margin-bottom: 18px;
+
   object-fit: contain;
+
+  display: block;
+
+  flex-shrink: 0;
 }
 
+
+/* الأيقونة البديلة */
+
+.aid-icon {
+  width: 72px;
+  height: 72px;
+
+  margin-bottom: 18px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border-radius: 18px;
+
+  background: #eef7f2;
+
+  font-size: 32px;
+}
+
+
+/* اسم الجهة */
+
 .aid-card h2 {
-  margin: 0 0 18px;
-  color: #2f6f55;
-  font-size: 24px;
+  margin: 0 0 10px;
+
+  color: #245c4b;
+
+  font-size: 19px;
+  font-weight: 800;
+
   line-height: 1.5;
 }
 
+
+/* حالة الجهة */
+
 .aid-status {
-  display: inline-block;
-  margin-bottom: 18px;
-  padding: 7px 14px;
-  background: #e8f8ef;
-  color: #27845d;
-  border-radius: 30px;
-  font-size: 14px;
-  font-weight: 600;
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 13px;
+
+  padding: 6px 11px;
+
+  border-radius: 999px;
+
+  background: #eef7f2;
+
+  color: #4d7666;
+
+  font-size: 12px;
+
+  line-height: 1.4;
 }
+
+
+/* وصف الجهة */
 
 .aid-card p {
-  margin: 0 0 22px;
-  color: #6b7f74;
-  font-size: 15px;
-  line-height: 1.9;
+  width: 100%;
+
+  margin: 0;
+
+  color: #71877d;
+
+  font-size: 13px;
+
+  line-height: 1.8;
 }
 
-.aid-card a {
-  display: inline-block;
-  color: #2f8f68;
-  text-decoration: none;
-  font-size: 15px;
+
+/* النص السفلي */
+
+.card-action {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  margin-top: auto;
+
+  padding-top: 18px;
+
+  color: #1d8060;
+
+  font-size: 13px;
   font-weight: 700;
-  transition: 0.2s;
+
+  transition: color 0.2s ease;
 }
 
-.aid-card a:hover {
-  color: #2f6f55;
-  transform: translateX(-3px);
+.aid-card:hover .card-action {
+  color: #155f48;
 }
+
 
 /* =========================================================
-   6) Orphans Page
+   13) ORPHANS PAGE
 ========================================================= */
 
 .orphans-page {
-  min-height: 500px;
-  padding: 70px 6%;
+  width: 100%;
+  min-height: 100vh;
+
+  padding: 45px 5% 70px;
+
+  direction: rtl;
+
   background:
     radial-gradient(
-      circle at 10% 20%,
-      rgba(47, 143, 104, 0.08) 0,
-      transparent 28%
-    ),
-    radial-gradient(
-      circle at 90% 80%,
-      rgba(47, 143, 104, 0.07) 0,
+      circle at 85% 15%,
+      rgba(220, 240, 230, 0.35),
       transparent 30%
     ),
-    linear-gradient(135deg, #f5fbf7, #eef7f2);
-  direction: rtl;
+    #fbfaf5;
+}
+
+.orphans-header {
+  max-width: 850px;
+
+  margin: 0 auto 35px;
+
   text-align: center;
 }
 
 .orphans-page h2 {
-  margin: 0 0 20px;
-  color: #2f6f55;
+  margin: 0 0 12px;
+
+  color: #245c4b;
+
   font-size: 32px;
+  font-weight: 800;
+
   line-height: 1.5;
 }
 
 .orphans-intro {
-  max-width: 800px;
-  margin: 0 auto 40px;
-  color: #6b7f74;
-  font-size: 18px;
+  margin: 0;
+
+  color: #6f887d;
+
+  font-size: 15px;
+
   line-height: 1.8;
 }
 
+
+/* =========================================================
+   ORPHAN CARDS
+========================================================= */
+
 .orphan-cards {
-  max-width: 1000px;
+  width: min(1120px, 100%);
+
   margin: 0 auto;
+
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 25px;
+
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+
+  gap: 22px;
 }
 
 .orphan-card {
-  padding: 30px 25px;
-  background: #f3faf6;
-  border: 1px solid #dceee4;
-  border-radius: 24px;
-  transition: 0.3s;
+  min-width: 0;
+  min-height: 310px;
+
+  padding: 28px 24px 24px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  text-align: center;
+
+  background: #ffffff;
+
+  border: 1px solid #e1eee7;
+
+  border-radius: 20px;
+
+  color: #315b4d;
+
+  text-decoration: none;
+
+  box-shadow:
+    0 5px 20px rgba(40, 80, 65, 0.06);
+
+  cursor: pointer;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
 }
 
 .orphan-card:hover {
-  transform: translateY(-7px);
-  box-shadow: 0 12px 30px rgba(47, 111, 85, 0.12);
+  transform: translateY(-6px);
+
+  border-color: #c6ded2;
+
+  box-shadow:
+    0 14px 32px rgba(40, 80, 65, 0.12);
 }
+
+.orphan-card:active {
+  transform: translateY(-2px);
+}
+
+.orphan-card:focus-visible {
+  outline: 2px solid #1d8060;
+  outline-offset: 4px;
+}
+
+
+/* شعار البرنامج */
+
+.orphan-logo {
+  width: 72px;
+  height: 72px;
+
+  margin-bottom: 18px;
+
+  display: block;
+
+  object-fit: contain;
+
+  flex-shrink: 0;
+}
+
+
+/* الأيقونة البديلة */
 
 .orphan-icon {
-  display: block;
-  margin-bottom: 15px;
-  font-size: 50px;
-}
+  width: 72px;
+  height: 72px;
 
-.orphan-card h3 {
-  margin: 0 0 12px;
-  color: #2f6f55;
-  font-size: 23px;
-  line-height: 1.5;
-}
+  margin-bottom: 18px;
 
-.orphan-card p {
-  margin: 0 0 20px;
-  color: #6b7f74;
-  font-size: 16px;
-  line-height: 1.8;
-}
-
-.orphan-card a {
-  color: #2f8f68;
-  text-decoration: none;
-  font-weight: 700;
-}
-
-.orphan-card a:hover {
-  text-decoration: underline;
-}
-
-.registration-representative {
-  margin: 12px 0;
-  padding: 10px 14px;
-  border-radius: 10px;
-  background: #eef7f2;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 6px;
-  direction: rtl;
+
+  flex-shrink: 0;
+
+  border-radius: 18px;
+
+  background: #eef7f2;
+
+  font-size: 32px;
+}
+
+
+/* اسم البرنامج */
+
+.orphan-card h3 {
+  margin: 0 0 10px;
+
+  color: #245c4b;
+
+  font-size: 19px;
+  font-weight: 800;
+
+  line-height: 1.5;
+}
+
+
+/* حالة التسجيل */
+
+.orphan-status {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 13px;
+
+  padding: 6px 11px;
+
+  border-radius: 999px;
+
+  background: #eef7f2;
+
+  color: #4d7666;
+
+  font-size: 12px;
+
+  line-height: 1.4;
+}
+
+
+/* وصف البرنامج */
+
+.orphan-card p {
+  width: 100%;
+
+  margin: 0;
+
+  color: #71877d;
+
+  font-size: 13px;
+
+  line-height: 1.8;
+}
+
+
+/* معلومات التسجيل عبر ممثل */
+
+.registration-representative {
+  width: 100%;
+
+  margin-top: 15px;
+
+  padding: 9px 12px;
+
+  border-radius: 10px;
+
+  background: #f4f9f6;
+
+  color: #5d796d;
+
+  font-size: 12px;
+
+  line-height: 1.6;
 }
 
 .registration-representative strong {
-  font-weight: 700;
+  color: #245c4b;
 }
 
+
+/* النص السفلي */
+
+.orphan-card .card-action {
+  margin-top: auto;
+}
+
+
 /* =========================================================
-   7) WhatsApp
+   14) WHATSAPP
 ========================================================= */
 
 .whatsapp-wrapper {
   position: fixed;
+
   right: 25px;
   bottom: 25px;
+
   z-index: 4000;
 }
 
 .whatsapp-button {
   display: flex;
+
   align-items: center;
+
   gap: 10px;
+
   padding: 12px 18px;
+
   border: none;
+
   border-radius: 50px;
+
   background: #2f8f68;
+
   color: #ffffff;
+
   font-family: inherit;
+
   font-weight: 700;
+
   cursor: pointer;
+
   text-decoration: none;
-  box-shadow: 0 8px 25px rgba(47, 111, 85, 0.25);
+
+  box-shadow:
+    0 8px 25px rgba(47, 111, 85, 0.25);
+
   transition: 0.3s;
 }
 
 .whatsapp-button:hover {
   background: #2f6f55;
+
   transform: translateY(-3px);
 }
 
 .whatsapp-button span {
   display: flex;
+
   flex-direction: column;
+
   align-items: flex-start;
 }
 
 .whatsapp-button small {
   margin-top: 2px;
+
   font-size: 12px;
   font-weight: 400;
+
   opacity: 0.9;
 }
 
 .whatsapp-panel {
   position: absolute;
+
   right: 0;
   bottom: 65px;
+
   width: 330px;
+
   padding: 25px;
+
   background: #ffffff;
+
   border: 1px solid #dceee4;
+
   border-radius: 22px;
-  box-shadow: 0 15px 40px rgba(47, 111, 85, 0.18);
+
+  box-shadow:
+    0 15px 40px rgba(47, 111, 85, 0.18);
+
   text-align: right;
 }
 
 .whatsapp-panel h3 {
   margin: 0 0 15px;
+
   color: #2f6f55;
+
   font-size: 21px;
 }
 
 .whatsapp-panel p {
   margin: 0 0 15px;
+
   color: #5f7168;
+
   font-size: 14px;
+
   line-height: 1.8;
 }
 
 .privacy-note {
   padding: 10px;
+
   background: #f3faf6;
+
   border-radius: 12px;
 }
 
 .whatsapp-start {
   display: block;
+
   padding: 12px;
+
   background: #2f8f68;
+
   color: #ffffff;
+
   border-radius: 12px;
+
   text-align: center;
+
   text-decoration: none;
+
   font-weight: 700;
 }
 
@@ -1074,104 +1932,153 @@ img {
 
 .whatsapp-close {
   position: absolute;
+
   top: 10px;
   left: 12px;
+
   border: none;
+
   background: transparent;
+
   color: #6b7f74;
+
   font-size: 25px;
+
   cursor: pointer;
 }
 
+
 /* =========================================================
-   8) Footer
+   15) FOOTER
 ========================================================= */
 
 .footer {
   width: 100%;
+
   padding: 50px 6% 0;
+
   background: #eef7f2;
+
   direction: rtl;
+
+  position: relative;
+
+  overflow: hidden;
 }
 
 .footer-content {
   display: grid;
+
   grid-template-columns: 1.5fr 1fr 1.2fr;
+
   gap: 50px;
+
   align-items: start;
+
+  position: relative;
+
+  z-index: 2;
 }
 
 .footer-about h3 {
   margin: 0 0 15px;
+
   color: #2f6f55;
+
   font-size: 24px;
   font-weight: 700;
 }
 
 .footer-about p {
   max-width: 500px;
+
   margin: 0;
+
   color: #6b7f74;
+
   font-size: 15px;
+
   line-height: 1.9;
 }
 
 .footer-links {
   display: flex;
+
   flex-direction: column;
+
   gap: 10px;
 }
 
 .footer-links h4 {
   margin: 0 0 10px;
+
   color: #2f6f55;
+
   font-size: 18px;
 }
 
 .footer-links a {
   color: #5f7168;
+
   text-decoration: none;
+
   font-size: 15px;
+
   transition: 0.2s;
 }
 
 .footer-links a:hover {
   color: #2f8f68;
+
   transform: translateX(-3px);
 }
 
 .footer-developer {
   padding-right: 45px;
+
   border-right: 1px solid #d8e9e1;
 }
 
 .footer-developer h4 {
   margin: 0 0 14px;
+
   color: #2f6f55;
+
   font-size: 20px;
 }
 
 .footer-developer p {
   margin: 0 0 18px;
+
   color: #58766a;
+
   font-size: 15px;
+
   line-height: 1.9;
 }
 
 .developer-social {
   display: flex;
+
   align-items: center;
+
   gap: 18px;
 }
 
 .developer-social a {
   display: flex;
+
   align-items: center;
+
   gap: 7px;
+
   color: #315c4a;
+
   text-decoration: none;
+
   font-size: 15px;
   font-weight: 600;
+
   transition: 0.2s;
 }
 
@@ -1181,57 +2088,135 @@ img {
 
 .developer-social a:hover {
   color: #2f8f68;
+
   transform: translateY(-2px);
 }
 
 .footer-bottom {
   margin-top: 30px;
+
   padding: 20px 0;
+
   border-top: 1px solid #dceee4;
+
   text-align: center;
 }
 
 .footer-bottom p {
   margin: 0;
+
   color: #7a8b83;
+
   font-size: 13px;
 }
 
+
 /* =========================================================
-   9) Responsive
+   16) ANCHOR SCROLL
 ========================================================= */
 
-/* Tablet / Mobile header */
+#about,
+#contact {
+  scroll-margin-top: 90px;
+}
+
+
+/* =========================================================
+   17) TABLET
+========================================================= */
+
+@media (max-width: 1000px) {
+
+  .aids-list,
+  .orphan-cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+
+/* =========================================================
+   18) TABLET / MOBILE
+========================================================= */
+
 @media (max-width: 900px) {
+
+  /* ================= HEADER ================= */
+
   .header {
+    width: 100%;
+
     min-height: 70px;
-    padding: 9px 5%;
-    gap: 12px;
+
+    padding: 9px 18px;
+
+    display: flex;
+
+    align-items: center;
+
+    direction: rtl;
+
+    gap: 0;
+
+    position: relative;
+
+    overflow: visible;
+  }
+
+
+  /* الشعار أقصى اليمين */
+
+  .logo {
+    order: 1;
+
+    margin-right: 0;
+    margin-left: auto;
+
+    flex-shrink: 0;
   }
 
   .logo img {
     width: 145px;
   }
 
-  .mobile-menu-button {
-    display: block;
-  }
+
+  /* ================= NAV ================= */
 
   .nav {
     display: none;
+
     position: absolute;
-    top: calc(100% + 6px);
-    right: 5%;
-    left: 5%;
-    padding: 12px;
-    background: #eef7f2;
-    border: 1px solid #d8e9e1;
-    border-radius: 16px;
-    box-shadow: 0 15px 35px rgba(38, 85, 70, 0.13);
+
+    top: 100%;
+
+    left: 0;
+    right: auto;
+
+    width: 280px;
+    max-width: 85vw;
+
+    margin: 0;
+
+    padding: 15px;
+
     flex-direction: column;
+
     align-items: stretch;
-    gap: 3px;
+
+    gap: 4px;
+
+    background: #ffffff;
+
+    border: 1px solid #dcebe4;
+    border-top: none;
+
+    border-radius: 0 0 14px 0;
+
+    box-shadow:
+      8px 12px 30px rgba(40, 80, 65, 0.12);
+
     z-index: 6000;
+
+    direction: rtl;
   }
 
   .nav.nav-open {
@@ -1239,51 +2224,141 @@ img {
   }
 
   .nav > a {
+    display: flex;
+
+    align-items: center;
+
     justify-content: flex-start;
-    padding: 12px 14px;
+
+    width: 100%;
+
+    padding: 13px 15px;
+
+    border-radius: 9px;
+
+    font-size: 14px;
+  }
+
+  .nav > a:hover {
+    background: #eef7f2;
   }
 
   .nav > a.active::after {
-    right: 14px;
-    left: auto;
-    width: 35px;
-    bottom: 6px;
+    display: none;
   }
 
+  .header-anchor-link {
+    justify-content: flex-start;
+
+    padding: 12px 14px;
+  }
+
+
+  /* ================= SEARCH ================= */
+
   .search-wrapper {
-    width: 155px;
+    order: 2;
+
+    margin: 0 12px 0 0;
+
+    flex-shrink: 0;
+
+    position: relative;
+  }
+
+  .search-text {
+    display: none;
   }
 
   .search-button {
-    min-height: 40px;
+    width: 38px !important;
+    height: 38px !important;
+
+    border-radius: 50%;
+
+    background: transparent !important;
   }
 
-  .search-container {
-    left: 0;
-    right: auto;
-    width: 300px;
-    max-width: calc(100vw - 30px);
+  .search-button-icon {
+    font-size: 19px;
   }
 
-  /* Home */
+
+  /*
+     مربع البحث على الهاتف:
+     يبقى داخل حدود الشاشة ولا يسبب
+     أي تمدد أفقي للصفحة.
+  */
+
+ .search-container {
+  position: fixed;
+
+  top: 80px;
+  left: 12px;
+  right: auto;
+
+  width: min(300px, calc(100vw - 24px));
+  max-width: calc(100vw - 24px);
+
+  padding: 12px;
+
+  background: #ffffff;
+
+  border: 1px solid #dcebe4;
+  border-radius: 14px;
+
+  box-shadow: 0 10px 30px rgba(40, 80, 65, 0.12);
+
+  z-index: 5000;
+}
+
+  /* ================= MOBILE MENU ================= */
+
+  .mobile-menu-button {
+    display: block;
+
+    order: 3;
+
+    margin: 0;
+
+    flex-shrink: 0;
+  }
+
+
+  /* ================= HERO ================= */
+
   .hero {
     min-height: auto;
+
     display: flex;
+
     flex-direction: column;
+
+    direction: ltr;
   }
 
   .hero-image {
     order: 1;
+
     width: 100%;
     height: 300px;
+
+    -webkit-mask-image: none;
+    mask-image: none;
   }
 
   .hero-image::after {
+    content: "";
+
+    position: absolute;
+
     width: 100%;
     height: 38%;
+
     top: auto;
     bottom: 0;
     right: 0;
+
     background: linear-gradient(
       to top,
       #fffaf0 0%,
@@ -1294,10 +2369,16 @@ img {
 
   .hero-content {
     order: 2;
+
     width: 100%;
+
     padding: 28px 7% 65px;
+
     align-items: center;
+
     text-align: center;
+
+    direction: rtl;
   }
 
   .hero-content h1 {
@@ -1316,24 +2397,58 @@ img {
     justify-content: center;
   }
 
+
+  /* ================= SERVICES ================= */
+
   .service-cards {
     grid-template-columns: 1fr;
+
     max-width: 500px;
   }
 
+
+  /* ================= HELP ================= */
+
   .help-section {
-    margin-left: 4%;
-    margin-right: 4%;
+    width: 92%;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    flex-direction: column;
+
+    padding: 25px 20px;
+
+    text-align: center;
   }
 
-  /* Aids */
-  .aids-list {
-    grid-template-columns: repeat(2, 1fr);
+  .help-content {
+    width: 100%;
+
+    flex: none;
   }
 
-  /* Footer */
+  .help-button {
+    width: 100%;
+  }
+
+
+  /* ================= ABOUT ================= */
+
+  .about-section {
+    padding: 55px 6%;
+  }
+
+  .about-points {
+    grid-template-columns: 1fr;
+  }
+
+
+  /* ================= FOOTER ================= */
+
   .footer-content {
     grid-template-columns: 1fr;
+
     gap: 30px;
   }
 
@@ -1347,14 +2462,29 @@ img {
 
   .footer-developer {
     border-right: none;
+
     border-top: 1px solid #d8e9e1;
+
     padding-right: 0;
+
     padding-top: 25px;
+  }
+
+
+  /* ================= SERVICE ART ================= */
+
+  .service-art {
+    height: 120px;
   }
 }
 
-/* Phone */
+
+/* =========================================================
+   19) PHONE
+========================================================= */
+
 @media (max-width: 768px) {
+
   .services {
     padding: 55px 6% 65px;
   }
@@ -1374,12 +2504,14 @@ img {
 
   .service-card {
     min-height: auto;
+
     padding: 28px 24px;
   }
 
   .service-icon {
     width: 60px;
     height: 60px;
+
     font-size: 29px;
   }
 
@@ -1391,55 +2523,94 @@ img {
     font-size: 14px;
   }
 
+
+  /* ================= AIDS ================= */
+
   .aids-page {
-    padding-bottom: 60px;
+    padding: 35px 5% 55px;
   }
 
   .aids-header {
-    padding: 50px 6% 30px;
+    margin-bottom: 28px;
   }
 
   .aids-header h1 {
-    font-size: 30px;
+    font-size: 27px;
   }
 
   .aids-header p {
-    font-size: 15px;
+    font-size: 14px;
   }
 
   .aids-list {
-    width: 88%;
+    width: 100%;
+
     grid-template-columns: 1fr;
-    gap: 18px;
+
+    gap: 17px;
   }
 
   .aid-card {
-    padding: 25px 22px;
+    min-height: auto;
+
+    padding: 24px 20px 22px;
+  }
+
+  .aid-logo,
+  .aid-icon {
+    width: 65px;
+    height: 65px;
   }
 
   .aid-card h2 {
-    font-size: 21px;
+    font-size: 18px;
   }
 
-  .aid-card p {
+
+  /* ================= ORPHANS ================= */
+
+  .orphans-page {
+    padding: 35px 5% 55px;
+  }
+
+  .orphans-header {
+    margin-bottom: 28px;
+  }
+
+  .orphans-page h2 {
+    font-size: 27px;
+  }
+
+  .orphans-intro {
     font-size: 14px;
   }
 
   .orphan-cards {
+    width: 100%;
+
     grid-template-columns: 1fr;
+
+    gap: 17px;
   }
 
-  .orphans-page {
-    padding: 55px 6%;
+  .orphan-card {
+    min-height: auto;
+
+    padding: 24px 20px 22px;
   }
 
-  .orphans-page h2 {
-    font-size: 28px;
+  .orphan-logo,
+  .orphan-icon {
+    width: 65px;
+    height: 65px;
   }
 
-  .orphans-intro {
-    font-size: 16px;
+  .orphan-card h3 {
+    font-size: 18px;
   }
+
+
+  /* ================= WHATSAPP ================= */
 
   .whatsapp-wrapper {
     right: 15px;
@@ -1448,8 +2619,11 @@ img {
 
   .whatsapp-panel {
     right: -5px;
+
     bottom: 65px;
+
     width: 300px;
+
     max-width: calc(100vw - 30px);
   }
 
@@ -1465,13 +2639,15 @@ img {
     font-size: 11px;
   }
 
+
+  /* ================= ABOUT ================= */
+
   .about-section {
     padding: 55px 6%;
   }
 
-  .about-points {
-    grid-template-columns: 1fr;
-  }
+
+  /* ================= FOOTER ================= */
 
   .footer {
     padding: 40px 6% 0;
@@ -1480,10 +2656,25 @@ img {
   .developer-social {
     flex-wrap: wrap;
   }
+
+
+  /* ================= SERVICE ICON ================= */
+
+  .service-icon-svg {
+    width: 72%;
+    height: 72%;
+  }
 }
 
-/* Small phones */
+
+/* =========================================================
+   20) SMALL PHONES
+========================================================= */
+
 @media (max-width: 600px) {
+
+  /* ================= HERO ================= */
+
   .hero-image {
     height: 250px;
   }
@@ -1506,12 +2697,16 @@ img {
 
   .hero-buttons {
     flex-direction: column;
+
     width: 100%;
   }
 
   .hero-button {
     width: 100%;
   }
+
+
+  /* ================= SERVICES ================= */
 
   .services {
     padding-left: 5%;
@@ -1526,287 +2721,40 @@ img {
     width: 30px;
   }
 
+
+  /* ================= BOTTOM LINKS ================= */
+
   .home-bottom-links {
     flex-wrap: wrap;
   }
 
   .home-bottom-links > div {
     min-width: 50%;
+
     margin-bottom: 12px;
   }
 
+
+  /* ================= HELP ================= */
+
   .help-section {
     flex-direction: column;
+
     text-align: center;
+
     padding: 25px 18px;
   }
 
   .help-button {
     width: 100%;
+
     justify-content: center;
   }
-}
 
-/* =========================================================
-   HOME SERVICE CARD ILLUSTRATIONS
-   رسومات داخل البطاقات + زخارف الخلفية
-========================================================= */
 
-.service-card {
-  position: relative;
-  overflow: hidden;
-}
+  /* ================= SERVICE ART ================= */
 
-.service-card .service-icon {
-  position: relative;
-  z-index: 3;
-  margin-bottom: 12px;
-  background: rgba(255, 255, 255, 0.62);
-}
-
-.service-icon-svg {
-  width: 70%;
-  height: 70%;
-  overflow: visible;
-}
-
-.service-icon-svg > circle:first-child {
-  fill: currentColor;
-  opacity: 0.10;
-}
-
-.service-icon-svg .icon-fill {
-  fill: currentColor;
-  stroke: none;
-}
-
-.service-icon-svg .icon-stroke,
-.service-icon-svg .icon-stroke-box {
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 2.8;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-
-.service-card-aids .service-icon,
-.service-card-aids .service-icon-svg {
-  color: #13866d;
-}
-
-.service-card-orphans .service-icon,
-.service-card-orphans .service-icon-svg {
-  color: #e97c78;
-}
-
-.service-card-jobs .service-icon,
-.service-card-jobs .service-icon-svg {
-  color: #2585b9;
-}
-
-/* الرسم الكبير أسفل كل بطاقة */
-.service-art {
-  position: absolute;
-  right: 0;
-  left: 0;
-  bottom: -2px;
-  height: 145px;
-  pointer-events: none;
-  z-index: 1;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-}
-
-.service-art-svg {
-  width: 100%;
-  height: 100%;
-  display: block;
-  overflow: visible;
-}
-
-.service-art-aids {
-  color: #74c5a9;
-}
-
-.service-art-orphans {
-  color: #ee9994;
-}
-
-.service-art-jobs {
-  color: #63b5d5;
-}
-
-.service-card .service-card-content {
-  position: relative;
-  z-index: 3;
-}
-
-/* حتى لا يغطي الرسم النص */
-.service-card .card-link {
-  position: relative;
-  z-index: 4;
-}
-
-/* تدرج خفيف فوق الرسم */
-.service-card::after {
-  content: "";
-  position: absolute;
-  right: 0;
-  left: 0;
-  bottom: 0;
-  height: 125px;
-  background: linear-gradient(
-    to top,
-    rgba(255, 255, 255, 0.06),
-    rgba(255, 255, 255, 0)
-  );
-  pointer-events: none;
-  z-index: 2;
-}
-
-/* زخارف أوراق قسم المساعدة */
-.help-section {
-  position: relative;
-  overflow: hidden;
-}
-
-.help-decor {
-  position: absolute;
-  bottom: -18px;
-  width: 70px;
-  height: 95px;
-  color: #79bda3;
-  opacity: 0.75;
-  pointer-events: none;
-}
-
-.help-decor-right {
-  right: 8px;
-}
-
-.help-decor-left {
-  left: 8px;
-  transform: scaleX(-1);
-}
-
-.leaf-decoration {
-  width: 100%;
-  height: 100%;
-  display: block;
-}
-
-/* =========================================================
-   FOOTER — الحفاظ على المحتوى القديم
-========================================================= */
-
-.footer {
-  position: relative;
-  overflow: hidden;
-}
-
-.footer-content {
-  position: relative;
-  z-index: 2;
-}
-
-/* =========================================================
-   SERVICE ART — MOBILE
-========================================================= */
-
-@media (max-width: 900px) {
-  .service-art {
-    height: 120px;
-  }
-}
-
-@media (max-width: 600px) {
   .service-art {
     height: 115px;
-  }
-
-  .service-icon-svg {
-    width: 72%;
-    height: 72%;
-  }
-}
-
-
-/* زر البحث */
-.search-button {
-  min-width: 136px;
-  padding: 9px 14px;
-  justify-content: center;
-  gap: 8px;
-}
-
-.search-button-icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 17px;
-  line-height: 1;
-}
-
-.search-button-label {
-  white-space: nowrap;
-  font-size: 13px;
-}
-
-/* إبقاء صندوق البحث داخل حدود الشاشة */
-.search-container {
-  right: 0;
-  left: auto;
-  max-width: min(350px, calc(100vw - 30px));
-}
-
-/* توسيط قسم المساعدة */
-.help-section {
-  width: min(1120px, 92%);
-  max-width: 1120px;
-  margin: 30px auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 24px;
-  text-align: center;
-}
-
-.help-content {
-  flex: 0 1 560px;
-  text-align: center;
-}
-
-.help-content p {
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.help-button {
-  flex-shrink: 0;
-}
-
-@media (max-width: 900px) {
-  .search-button {
-    width: 100%;
-    min-width: 0;
-  }
-
-  .help-section {
-    width: 92%;
-    margin-left: auto;
-    margin-right: auto;
-    flex-direction: column;
-    justify-content: center;
-  }
-
-  .help-content {
-    flex: none;
-    width: 100%;
-  }
-
-  .help-button {
-    width: 100%;
-    justify-content: center;
   }
 }

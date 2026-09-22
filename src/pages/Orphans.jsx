@@ -55,22 +55,32 @@ function Orphans() {
       representativeName: 'يوسف الصقر',
       link: 'https://wa.me/972595405711',
     },
-  ];
+  ]
 
   return (
     <main className="orphans-page orphans-background">
 
-      <h2>تسجيل الأيتام 👶</h2>
+      <section className="orphans-header">
+        <h2>
+          تسجيل الأيتام 👶
+        </h2>
 
-      <p className="orphans-intro">
-        نوفر لك روابط تسجيل الأيتام وبرامج الرعاية والكفالة المتاحة.
-      </p>
+        <p className="orphans-intro">
+          نوفر لك روابط تسجيل الأيتام وبرامج الرعاية والكفالة المتاحة.
+        </p>
+      </section>
 
       <div className="orphan-cards">
 
         {orphanPrograms.map((program) => (
-
-          <div className="orphan-card" key={program.id}>
+          <a
+            key={program.id}
+            href={program.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="orphan-card"
+            aria-label={`فتح ${program.name}`}
+          >
 
             {program.logo ? (
               <img
@@ -84,7 +94,9 @@ function Orphans() {
               </span>
             )}
 
-            <h3>{program.name}</h3>
+            <h3>
+              {program.name}
+            </h3>
 
             <span className="orphan-status">
               🟢 {program.status}
@@ -94,41 +106,28 @@ function Orphans() {
               {program.description}
             </p>
 
-            {program.registrationType === 'yousef' ? (
-              <>
-                <div className="registration-representative">
-                  👤 التسجيل عبر{' '}
-                  <strong>
-                    {program.representativeName}
-                  </strong>
-                </div>
-
-                <a
-                  href={program.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  📱 التواصل عبر واتساب ←
-                </a>
-              </>
-            ) : (
-              <a
-                href={program.link}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                عرض رابط التسجيل ←
-              </a>
+            {program.registrationType === 'yousef' && (
+              <div className="registration-representative">
+                👤 التسجيل عبر{' '}
+                <strong>
+                  {program.representativeName}
+                </strong>
+              </div>
             )}
 
-          </div>
+            <span className="card-action">
+              {program.registrationType === 'yousef'
+                ? '📱 التواصل عبر واتساب ←'
+                : 'فتح رابط التسجيل ←'}
+            </span>
 
+          </a>
         ))}
 
       </div>
 
     </main>
-  );
+  )
 }
 
-export default Orphans;
+export default Orphans
