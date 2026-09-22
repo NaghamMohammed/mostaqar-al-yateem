@@ -1,3 +1,6 @@
+
+import { FaWhatsapp, FaInstagram } from 'react-icons/fa'
+
 function Footer() {
   return (
     <footer className="footer">
@@ -19,6 +22,42 @@ function Footer() {
           <a href="/">الرئيسية</a>
           <a href="/aids">المساعدات</a>
           <a href="/orphans">تسجيل الأيتام</a>
+        </div>
+
+        <div className="footer-developer">
+
+          <h4>تصميم وبرمجة المواقع</h4>
+
+          <p>
+            هل تريد موقعًا إلكترونيًا خاصًا بك؟
+            <br />
+            تواصل معي لتصميم وبرمجة موقعك.
+          </p>
+
+          <div className="developer-social">
+
+            <a
+              href="https://wa.me/972593610919"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="التواصل عبر واتساب"
+            >
+              <FaWhatsapp />
+              <span>واتساب</span>
+            </a>
+
+            <a
+              href="https://www.instagram.com/nghm_1612m?stkn=MTRmcXJvMm4zamFzbQ=="
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="التواصل عبر Instagram"
+            >
+              <FaInstagram />
+              <span>Instagram</span>
+            </a>
+
+          </div>
+
         </div>
 
       </div>

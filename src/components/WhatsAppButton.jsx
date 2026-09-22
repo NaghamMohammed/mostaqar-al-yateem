@@ -44,7 +44,7 @@ function WhatsAppButton() {
 
           <p>
             💰 خدمة المساعدة في التسجيل متاحة مقابل
-            <strong> رسم رمزي</strong> يتم توضيحه قبل بدء الخدمة.
+            <strong> سعر رمزي</strong> يتم توضيحه قبل بدء الخدمة.
           </p>
 
           <p className="privacy-note">

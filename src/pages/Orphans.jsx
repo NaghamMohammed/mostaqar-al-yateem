@@ -1,63 +1,64 @@
 function Orphans() {
-
   const orphanPrograms = [
-  {
-    id: 1,
-    name: 'وزارة التنمية الاجتماعية الفلسطينية',
-    status: 'خدمات رسمية لرعاية الأيتام',
-    description:
-      'تقدم الوزارة خدمات حماية ورعاية للأيتام، وتشمل تحويل الحالات إلى المؤسسات والمراكز الشريكة وفق الإجراءات المعتمدة.',
-    link: 'https://www.mosd.gov.ps/ar/single-sub-citizen/7',
-  },
+    {
+      id: 1,
+      name: 'وزارة التنمية الاجتماعية الفلسطينية',
+      status: 'خدمات رسمية لرعاية الأيتام',
+      description:
+        'تقدم الوزارة خدمات حماية ورعاية للأيتام، وتشمل تحويل الحالات إلى المؤسسات والمراكز الشريكة وفق الإجراءات المعتمدة.',
+      link: 'https://www.mosd.gov.ps/ar/single-sub-citizen/7',
+    },
 
-  {
-    id: 2,
-    name: 'برنامج أمل المستقبل',
-    status: 'برنامج مخصص للأيتام',
-    description:
-      'برنامج تابع لوزارة التنمية الاجتماعية يهدف إلى دعم الأيتام من خلال الكفالات المالية والرعاية والإيواء والمشاريع التنموية.',
-    link: 'https://donate.mosd.gov.ps/about',
-  },
+    {
+      id: 2,
+      name: 'برنامج أمل المستقبل',
+      status: 'برنامج مخصص للأيتام',
+      description:
+        'برنامج تابع لوزارة التنمية الاجتماعية يهدف إلى دعم الأيتام من خلال الكفالات المالية والرعاية والإيواء والمشاريع التنموية.',
+      link: 'https://donate.mosd.gov.ps/about',
+    },
 
-  {
-    id: 3,
-    name: 'جمعية دار اليتيم الفلسطيني',
-    status: 'رعاية وكفالة الأيتام',
-    description:
-      'جمعية خيرية في قطاع غزة تقدم برامج كفالة ورعاية ومساعدات للأيتام والأسر المحتاجة.',
-    link: 'https://darelyateem.org/',
-  },
+    {
+      id: 3,
+      name: 'جمعية دار اليتيم الفلسطيني',
+      status: 'رعاية وكفالة الأيتام',
+      description:
+        'جمعية خيرية في قطاع غزة تقدم برامج كفالة ورعاية ومساعدات للأيتام والأسر المحتاجة.',
+      link: 'https://darelyateem.org/',
+    },
 
-  {
-    id: 4,
-    name: 'جمعية سبيل لرعاية الأيتام',
-    status: 'جهة شريكة في رعاية الأيتام',
-    description:
-      'جمعية لرعاية الأيتام في طوباس، وهي مذكورة ضمن المؤسسات الشريكة لدى وزارة التنمية الاجتماعية.',
-    link: 'https://www.mosd.gov.ps/ar/single-sub-citizen/7',
-  },
+    {
+      id: 4,
+      name: 'جمعية سبيل لرعاية الأيتام',
+      status: 'جهة شريكة في رعاية الأيتام',
+      description:
+        'جمعية لرعاية الأيتام في طوباس، وهي مذكورة ضمن المؤسسات الشريكة لدى وزارة التنمية الاجتماعية.',
+      link: 'https://www.mosd.gov.ps/ar/single-sub-citizen/7',
+    },
 
-  {
-    id: 5,
-    name: 'جمعية دار اليتيم العربي',
-    status: 'جهة شريكة في رعاية الأيتام',
-    description:
-      'جمعية لرعاية الأيتام في طولكرم، ومذكورة ضمن المؤسسات الشريكة لدى وزارة التنمية الاجتماعية.',
-    link: 'https://www.mosd.gov.ps/ar/single-sub-citizen/7',
-  },
-  {
-  id: 6,
-  name: 'هيئة الأعمال الخيرية - أستراليا',
-  status: 'التسجيل متاح',
-  description:
-    'يمكن تسجيل الحالات ضمن برامج رعاية وكفالة الأيتام.',
-  registrationType: 'yousef',
-  representativeName: 'يوسف الصقر',
-},
-]
+    {
+      id: 5,
+      name: 'جمعية دار اليتيم العربي',
+      status: 'جهة شريكة في رعاية الأيتام',
+      description:
+        'جمعية لرعاية الأيتام في طولكرم، ومذكورة ضمن المؤسسات الشريكة لدى وزارة التنمية الاجتماعية.',
+      link: 'https://www.mosd.gov.ps/ar/single-sub-citizen/7',
+    },
+
+    {
+      id: 6,
+      name: 'هيئة الأعمال الخيرية - أستراليا',
+      status: 'التسجيل متاح',
+      description:
+        'يمكن تسجيل الحالات ضمن برامج رعاية وكفالة الأيتام.',
+      registrationType: 'yousef',
+      representativeName: 'يوسف الصقر',
+      link: 'https://wa.me/972595405711',
+    },
+  ];
 
   return (
-    <main className="orphans-page">
+    <main className="orphans-page orphans-background">
 
       <h2>تسجيل الأيتام 👶</h2>
 
@@ -71,7 +72,17 @@ function Orphans() {
 
           <div className="orphan-card" key={program.id}>
 
-            <span className="orphan-icon">📝</span>
+            {program.logo ? (
+              <img
+                src={program.logo}
+                alt={`شعار ${program.name}`}
+                className="orphan-logo"
+              />
+            ) : (
+              <span className="orphan-icon">
+                📝
+              </span>
+            )}
 
             <h3>{program.name}</h3>
 
@@ -82,30 +93,33 @@ function Orphans() {
             <p>
               {program.description}
             </p>
-{program.registrationType === 'yousef' ? (
-  <>
-    <div className="registration-representative">
-      👤 التسجيل عبر
-      <strong>{program.representativeName}</strong>
-    </div>
 
-    <a
-      href="#"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      📱 التواصل عبر واتساب ←
-    </a>
-  </>
-) : (
-  <a
-    href={program.link}
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    عرض رابط التسجيل ←
-  </a>
-)}
+            {program.registrationType === 'yousef' ? (
+              <>
+                <div className="registration-representative">
+                  👤 التسجيل عبر{' '}
+                  <strong>
+                    {program.representativeName}
+                  </strong>
+                </div>
+
+                <a
+                  href={program.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  📱 التواصل عبر واتساب ←
+                </a>
+              </>
+            ) : (
+              <a
+                href={program.link}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                عرض رابط التسجيل ←
+              </a>
+            )}
 
           </div>
 
@@ -114,7 +128,7 @@ function Orphans() {
       </div>
 
     </main>
-  )
+  );
 }
 
-export default Orphans
+export default Orphans;
